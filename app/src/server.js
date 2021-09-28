@@ -11,6 +11,11 @@ app.use(express.json());
 app.set('view engine', 'ejs')
 
 
+// Routes
+const categoryController = require('./controllers/category.controller');
+
+app.use('/categories', categoryController);
+
 
 const PORT = 5555;
 app.listen(PORT, async () => {
