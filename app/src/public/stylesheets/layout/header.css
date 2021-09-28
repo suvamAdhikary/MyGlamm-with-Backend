@@ -1,0 +1,69 @@
+header {
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    height: 160px;
+    padding: 0 0 1% 0;
+    box-shadow:  0 3px var(--bg-color-main);
+}
+
+#add__div {
+    background-color: var(--bg-color-ad);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 30%;
+    padding: 0.5% 10% 1%;
+}
+
+#middle__div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 40%;
+    padding: 0.5% 10% 1%;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 25%;
+    padding: 0.5% 10% 1%;
+}
+
+#main__logo {
+    height: 70%;
+    flex-grow: 15%;
+}
+
+#search__bar {
+    background-color: var(--bg-color-main);
+    border: solid 1px var(--border-color-gray);
+    height: 100%;
+    border-radius: 3%;
+}
+#search__bar:focus {
+    border: solid 1px var(--border-color-gray);
+}
+
+
+#refer__earn {
+    border: 1px solid #000000;
+    padding: 5px 8px;
+    border-radius: 30px;
+}
+#refer__earn:hover {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+#bag__count{
+    position: fixed;
+    z-index: 2;
+    top: 1;
+}
