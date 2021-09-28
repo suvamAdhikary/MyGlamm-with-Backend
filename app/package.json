@@ -2,14 +2,15 @@
   "name": "myglamm",
   "version": "0.0.1",
   "description": "",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon src/app"
+    "server": "nodemon src/server"
   },
   "author": "Suvam Adhikary",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "mongoose": "^6.0.7"

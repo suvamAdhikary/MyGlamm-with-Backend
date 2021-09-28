@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+require('dotenv').config();
+
 module.exports = () => {
-    return mongoose.connect('mongodb+srv://suvamAdhikary:myGlamm_unit-3@cluster0.01zvv.mongodb.net/myglamm?retryWrites=true&w=majority');
+    return mongoose.connect(`mongodb+srv://myGlamm:${process.env.DB_PASS}@cluster0.46pid.mongodb.net/myGlammDatabase?retryWrites=true&w=majority`);
 };
