@@ -54,4 +54,19 @@
     `done with bag and user model and controller`
 
 
+- few models updated and created :  
+
+    `done with order and payment model and controller updated category, subcategory and tag model`
+
+
+- all models and basic controllers done :  
+
+    `done with address, order, wishlist model and controller and updated few models`
+
+
+- done with review model and controller and updated product and user model :    
+
+    `done with review model and controller and updated product and user model`
+
+
 - 
