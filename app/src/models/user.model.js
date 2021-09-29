@@ -9,6 +9,9 @@ const userSchema = new mongoose.Schema({
     membershipLevel: {type: String, required: false},
     glamPoint: {type: Number, required: false},
     bagId: [{type: mongoose.Schema.Types.ObjectId, ref: 'bag', required: false}],
+    totalItemsInBag: {type: Number, required: false},
+    totalPrice: {type: Number, required: false},
+    xoPoint: {type: Number, required: false},
     wishlistId: [{type: mongoose.Schema.Types.ObjectId, ref: 'wishlist', required: false}],
 }, {
     versionKey: false,
