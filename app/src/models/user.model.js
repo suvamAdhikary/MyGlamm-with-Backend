@@ -5,8 +5,14 @@ const userSchema = new mongoose.Schema({
     full_name: {type: String, required: true},
     email: {type: String, required: true},
     registeredAt: {type: Date, default: Date.now},
+    logStatus: {type: Boolean, required: true},
+    membershipLevel: {type: String, required: false},
+    glamPoint: {type: Number, required: false},
+    bagId: [{type: mongoose.Schema.Types.ObjectId, ref: 'bag', required: false}],
+    wishlistId: [{type: mongoose.Schema.Types.ObjectId, ref: 'wishlist', required: false}],
 }, {
     versionKey: false,
+    timestamps: true,
 });
 
 const User = mongoose.model('user', userSchema);

@@ -8,9 +8,9 @@ const productSchema = mongoose.Schema({
     imagesSmall: [{type: String, required: true}],
     rating: {type: Number, required: true},
     ratings: {type: Number, required: true},
-    category: {type: mongoose.Schema.Types.ObjectId, ref: "category", required: true},
-    subCategory: {type: mongoose.Schema.Types.ObjectId, ref: "subcategory", required: false},
-    tag: {type: mongoose.Schema.Types.ObjectId, ref: "tag", required: false},
+    categoryId: {type: mongoose.Schema.Types.ObjectId, ref: "category", required: true},
+    subCategoryId: {type: mongoose.Schema.Types.ObjectId, ref: "subcategory", required: false},
+    tagId: {type: mongoose.Schema.Types.ObjectId, ref: "tag", required: false},
 }, {
     versionKey: false,
     timestamp: true,
