@@ -69,4 +69,14 @@
     `done with review model and controller and updated product and user model`
 
 
+- few routes added to the server :  
+
+    `Category, subCategory, tag and product route added to the server an tag model updated`
+
+
+- all routes added : 
+
+    `all routes added to the server`
+
+
 - 
