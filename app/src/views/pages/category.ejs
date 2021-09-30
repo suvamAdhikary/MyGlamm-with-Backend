@@ -7,15 +7,15 @@
     <header>
         <%- include("../components/header") %>
     </header>
-    <% console.log(category) %> 
+
     <main>
         <p>HOME /<%= category.name %></p>
         <hr>
         <h3><%= category.name %></h3>
         <section  id="category__products">
-            <% category.productsId.forEach((product) => { %>
+            <% products.forEach((product) => { %>
 
-            <a href="<%= product._id %>" class="product-box">
+            <a href="<%= `products/${product._id}` %>" class="product-box">
                 <img src="<%= product.imagesSmall[0] %>" alt="">
                 <p><%= product.name %></p>
                 <p><%= product.description %></p>

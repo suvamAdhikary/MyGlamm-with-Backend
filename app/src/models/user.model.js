@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    countryCode: {type: Number, required: true},
-    mobile: {type: Number, required: true, min: 1000000000, max: 9999999999, unique: true},
+    _id: {type: String, required: true},
     full_name: {type: String, required: true},
     email: {type: String, required: true},
-    registeredAt: {type: Date, default: Date.now},
-    logStatus: {type: Boolean, required: true},
+    mobileId: {type: mongoose.Schema.Types.ObjectId, ref: 'mobile', required: true},
+    address: [{type: mongoose.Schema.Types.ObjectId, ref: 'address', required: false}],
+    logStatus: {type: Boolean, required: false},
     membershipLevel: {type: String, required: false},
     glamPoint: {type: Number, required: false},
     bagId: [{type: mongoose.Schema.Types.ObjectId, ref: 'bag', required: false}],
