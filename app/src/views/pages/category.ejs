@@ -2,33 +2,29 @@
 <html lang="en">
     <%- include("../components/head", {
         title: `${category.name} - Buy ${category.name} Products Online at Best Price - MyGlamm `
-    }) %
+    }) %>
 <body>
     <header>
         <%- include("../components/header") %>
     </header>
+    <% console.log(category) %> 
     <main>
         <p>HOME /<%= category.name %></p>
         <hr>
         <h3><%= category.name %></h3>
+        <section  id="category__products">
+            <% category.productsId.forEach((product) => { %>
 
-        <% category.productsId.forEach((product) => { %>
+            <a href="<%= product._id %>" class="product-box">
+                <img src="<%= product.imagesSmall[0] %>" alt="">
+                <p><%= product.name %></p>
+                <p><%= product.description %></p>
+                <p><%= product.price %></p>   
+            </a>
 
-            
-
-        <%})%>
-
+            <%})%>
+        </section>
     </main>
     <footer></footer>
 </body>
 </html>
-
-
-
-<% users.forEach(function (user) {%>
-                <button onclick="clickUser(<%= JSON.stringify(user) %>)">Click</button>
-                <li>First Name: <%= user.first_name %></li>
-                <li>Last Name: <%= user.last_name %></li>
-                <a href="/users/<%= user._id %>">Indiviual User Page</a>
-                <!-- users/614dbc3d1d67f9f3ecb3153b -->
-            <% }) %>
