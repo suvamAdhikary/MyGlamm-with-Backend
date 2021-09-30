@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
+    countryCode: {type: Number, required: true},
     mobile: {type: Number, required: true, min: 1000000000, max: 9999999999, unique: true},
     full_name: {type: String, required: true},
     email: {type: String, required: true},

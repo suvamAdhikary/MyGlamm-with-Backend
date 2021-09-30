@@ -8,8 +8,8 @@ const crudController = require('./crud.controller');
 
 router.post('', crudController.post(Address));
 router.get('', crudController.get(Address));
-router.get('', crudController.getOne(Address));
-router.patch('', crudController.updateOne(Address));
-router.delete('', crudController.deleteOne(Address));
+router.get(':id', crudController.getOne(Address));
+router.patch(':id', crudController.updateOne(Address));
+router.delete(':id', crudController.deleteOne(Address));
 
 module.exports = router;

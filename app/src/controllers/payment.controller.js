@@ -8,8 +8,8 @@ const crudController = require('./crud.controller');
 
 router.post('', crudController.post(Payment));
 router.get('', crudController.get(Payment));
-router.get('', crudController.getOne(Payment));
-router.patch('', crudController.updateOne(Payment));
-router.delete('', crudController.deleteOne(Payment));
+router.get(':id', crudController.getOne(Payment));
+router.patch(':id', crudController.updateOne(Payment));
+router.delete(':id', crudController.deleteOne(Payment));
 
 module.exports = router;

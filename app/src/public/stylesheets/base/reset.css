@@ -9,7 +9,7 @@ html {
     box-sizing: inherit;
 }
 
-body, h1, h2, h3, h4, h5, h6, p, ol, ul, div {
+body, h1, h2, h3, h4, h5, h6, p, ol, ul, div, header, main, footer {
     margin: 0;
     padding: 0;
     font-weight: normal;
@@ -27,4 +27,9 @@ img {
 a, a:visited, a:hover {
     color: #000000;
     text-decoration: none;
+}
+
+main {
+    position: relative;
+    top: 160px;
 }

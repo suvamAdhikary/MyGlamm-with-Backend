@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../components/head", {
+        title: `Buy ${product.name}`
+    }) %>
+<body>
+    <header>
+        <%- include("../components/header") %>
+    </header>
+    <main>
+        <div id="img__container" class="image__container">
+            <div id="image__slider"></div>
+            <div id="image__onfocous">
+                <img src="<%= product.imagesSmall[0] %>" alt="">
+            </div>
+        </div>
+        <div id="details__container" class="dtls__container">
+            <h2 class="product__name"><%= product.name %> </h2>
+            <p class="product__description"><%= product.description %> </p>
+            <p class="rating"><%= product.rating %></p>
+            <p class="rating__giver"><%= product.totalRatingGiver %> </p>
+            <p class="product__price"><%= product.price %> </p>
+            <button class="addtobag">ADD TO BAG</button>
+        </div>
+    </main>
+    <footer></footer>
+</body>
+</html>
