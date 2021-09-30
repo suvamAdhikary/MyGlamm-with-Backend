@@ -6,7 +6,7 @@ const Tag = require('../models/tag.model');
 
 const crudController = require('./crud.controller');
 
-router.get('', async (req, res) => {
+router.get('/all', async (req, res) => {
     
     try {
         const tags = await Tag.find().populate({
@@ -24,7 +24,7 @@ router.get('', async (req, res) => {
 });
 
 router.post('', crudController.post(Tag));
-// router.get('', crudController.get(Tag));
+// router.get('/all', crudController.get(Tag));
 router.get('/:id', crudController.getOne(Tag));
 router.patch('/:id', crudController.updateOne(Tag));
 router.delete('/:id', crudController.deleteOne(Tag));

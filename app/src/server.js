@@ -34,16 +34,16 @@ const reviewController = require('./controllers/review.controller');
 
 app.use('/categories', categoryController);
 app.use('/categories/subcategories', subCategoryController);
-app.use('/categories/tag', tagController);
+app.use('/categories/tags', tagController);
 app.use('/products', productController);
-app.use('/promo', promoController);
-app.use('/user', userController);
-app.use('/address', addressController);
-app.use('/wishlist', wishlistController);
-app.use('/bag', bagController);
-app.use('/payment', paymentController);
-app.use('/order', orderController);
-app.use('/review', reviewController);
+app.use('/promos', promoController);
+app.use('/users', userController);
+app.use('/addresses', addressController);
+app.use('/wishlists', wishlistController);
+app.use('/bags', bagController);
+app.use('/payments', paymentController);
+app.use('/orders', orderController);
+app.use('/reviews', reviewController);
 
 
 // Routes from routes
