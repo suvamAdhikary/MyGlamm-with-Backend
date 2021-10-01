@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../components/head", {
+        title: `Shopping Bag`
+    }) %
+<body>
+    <header>
+        <%- include("../components/header") %>
+    </header>
+    <main>
+        <p>MY BAG(<span id="total__products"></span>)</p>
+        <div id="bag__items"></div>
+        <div id="cart__cashback">
+            <p>You will earn <span id="cashback"></span> as cashback on this order.</p>
+            <p>GRAND TOTAL <span id="checkout__price"></span></p>
+        </div>
+        <button id="checkout__btn"><a id="checkout__link">PROCEED TO CHECKOUT</a></button>
+    </main>
+    <footer></footer>
+</body>
+</html>
+
+
