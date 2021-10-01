@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../components/head", {
+        title: `Checkout`
+    }) %
+<body>
+    <header>
+        <%- include("../components/header") %>
+    </header>
+    <main>
+        <p>Checkout</p>
+       <div>
+           <div id="shipping__address">
+               <div>
+                   <input id="is__international" type="checkbox">
+                   <label id="shipping__internationally" for="is__international">Shipping Internationally ?</label>
+               </div>
+               <p>SHIPPING ADDRESS</p>
+               <hr>
+               <div id="shipping__address--ch">
+                   <div>
+                       <p id="small__heading"></p>
+                       <p id="small__address"></p>
+                       <p id="small__address2"></pemail >
+                   </div>
+                   <div>
+                       <p id="small__ph"></p>
+                       <p id="small__email"></p>
+                   </div>
+               </div>
+               <button id="address__change--btn">Change</button>
+               <div>
+                   <p>Expected Delivery Date</p>
+                   <p id="expected__delivery--date"></p>
+               </div>
+               <p>BILLING ADDRESS</p>
+               <hr>
+               <div>
+                   <p>Same as Shipping Address</p>
+                   <button id="change__billing--address">Change</button>
+               </div>
+           </div>
+           <div id="order__summary">
+            <div class="os__flex__container">
+                <p>Total Amount</p>
+                <p id="checkout__total"></p>
+            </div>
+            <div class="os__flex__container">
+                <p>Shipping Charges</p>
+                <p id="checkout__shipping"></p>
+            </div>
+            <div class="os__flex__container">
+                <p>Discount</p>
+                <p id="checkout__discount"></p>
+            </div>
+            <label id="promo__heading" for="checkout__promo">Apply Promo Code</label>
+            <div class="os__flex__container" id="checkout__promo--container">
+                <input id="checkout__promo" type="text" placeholder="PROMO CODE">
+                <button id="promo__button">APPLY</button>
+            </div>
+            <div id="xo">
+                <input id="redeem__glamm--pt" type="checkbox">
+                <label for="redeem__glamm--pt">Redeem MyGlammXO Points (<span id="glamm__points"></span>) </label>
+            </div>
+            <div class="os__flex__container">
+                <p>Amount Payable</p>
+                <p id="checkout__payable"></p>
+            </div>
+            <div class="os__flex__container">
+                <p>You Saved</p>
+                <p id="checkout__saved"></p>
+            </div>
+            <div class="os__flex__container">
+                <p>You will earn</p>
+                <p id="checkout__earn"></p>
+            </div>
+            <input id="payment__link" type="submit" value="PROCEED TO PAYMENT">
+           </div>
+           <div id="your__order">
+               <p>YOUR ORDER</p>
+               <div id="orderd__products"></div>
+           </div>
+       </div>
+       <hr>
+       <p>© MyGlamm</p>
+    </main>
+    <footer></footer>
+</body>
+</html>
+
+
