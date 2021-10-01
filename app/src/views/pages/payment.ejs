@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../components/head", {
+        title: `Payment`
+    }) %
+<body>
+    <header>
+        <%- include("../components/header") %>
+    </header>
+    <main>
+        <p>Payment</p>
+       <div id="payment-container">
+        <nav>
+            <p>PAYMENT METHOD</p>
+            <div>
+                <div id="payment__card" class="side__stylebar">Credit or Debit Card</div>
+                <div id="payment__net" class="side__stylebar">Net Banking</div>
+                <div id="payment__upi" class="side__stylebar">Google Pay / PhonePe/ UPI</div>
+                <div id="payment__wallet" class="side__stylebar">Wallets</div>
+                <div id="payment__cod" class="side__stylebar">Cash On Delivery</div>
+            </div>
+        </nav>
+        <section>
+            <div class="stylebar">
+                <p>AMOUNT PAYABLE</p>
+                <p id="payment__payable--amount"></p>
+            </div>
+            <div id="payment__details"></div>
+        </section>
+       </div>
+        <div class="hr"></div>
+       <p>© MyGlamm</p>
+    </main>
+    <footer></footer>
+</body>
+</html>
+
+
