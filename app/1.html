@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="https://www.myglamm.com/favicon.ico">
+    <title>Buy SUPERFOODS Onion & Moringa Shampoo Online at Best Price - MyGlamm</title>
+    <link rel="stylesheet" href="products.css">
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <header></header>
+    <script src="../javascript/header.js"></script>
+    <script src="../javascript/connect.js"></script>
+    <main id="mainImgDiv">
+        <div id="img__container" class="image__container">
+            <div id="image__slider"></div>
+            <div id="image__onfocous"></div>
+        </div>
+        <div id="details__container" class="dtls__container">
+    
+        </div>
+    </main>
+    <footer></footer>
+</body>
+</html>
+<script>
+    let imgSlider = document.getElementById("image__slider");
+    let imgOnFocuse = document.getElementById("image__onfocous")
+    let detailsDiv = document.getElementById("details__container");
+
+
+    let myProducts = localStorage.getItem('glamm_products');
+
+    myProducts = JSON.parse(myProducts);
+
+// Below is the funtion for showing product details
+
+function showProductDetails() {
+    
+    myProducts.forEach(function(product, n) {
+ 
+        if(n == 1) {
+
+            let p_name = document.createElement('h2');
+            p_name.setAttribute('class', 'product__name');
+            p_name.innerText = product.name;
+
+            let p_description = document.createElement('p');
+            p_description.setAttribute('class', 'product__description');
+            p_description.innerText = product.description;
+
+            let rating = document.createElement('p');
+            rating.setAttribute('class', 'rating');
+            rating.innerText = product.rating;
+
+            let rating_giver = document.createElement('p');
+            rating_giver.setAttribute('class', 'rating__giver');
+            rating_giver.innerText = `${product.ratings} ratings`;
+
+            let p_price = document.createElement('p');
+            p_price.innerText = '₹ ' + product.price;
+
+            let btn = document.createElement('button');
+            btn.setAttribute("class", "addtobag");
+            btn.innerText = 'ADD TO BAG';
+            btn.onclick = function () {
+                addtoCart(product);
+            }
+
+            detailsDiv.append(p_name, p_description, rating, rating_giver, p_price, btn);
+        }
+
+    })
+}
+showProductDetails();
+
+
+// Below is the function for displaying product images
+
+function showProductImages() {
+    
+    myProducts.forEach(function(product, n) {
+ 
+        if(n == 1) {
+
+            let div = document.createElement('div');
+
+            let image = document.createElement('img');
+            image.src = product.imagesSmall[0];
+            image.setAttribute("id","featured");
+            let btn = document.createElement('button');
+            btn.setAttribute("class", "addtobag");
+            btn.innerText = 'ADD TO BAG';
+            btn.onclick = function () {
+                addtoCart(product);
+            }
+
+            imgOnFocuse.append(image);
+        }
+
+    })
+
+}
+showProductImages();
+
+
+
+let pics = myProducts[1].imagesSmall;
+
+let mainDiv = document.getElementById("mainImgDiv");
+
+
+let imageSlider = document.createElement("div");
+imageSlider.setAttribute("id","sliderOut");
+
+let featuredImg = document.getElementById("featured");
+let rightImgSlide = document.createElement("img");
+let leftImgSlide = document.createElement("img");
+imageSliderIn = document.createElement("div");
+imageSliderIn.setAttribute("id","slider");
+leftImgSlide.src = "data:image/png;base64,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";
+rightImgSlide.src = "https://icon-library.com/images/bottom-arrow-icon/bottom-arrow-icon-11.jpg";
+
+rightImgSlide.setAttribute("id","rtSlide");
+leftImgSlide.setAttribute("id","ltSlide");
+
+//leftImgSlide.addEventListener("click",)
+imageSlider.append(leftImgSlide);
+
+
+
+
+
+
+
+
+//thumbnail.setAttribute();
+let picture = document.createElement("img");
+picture.setAttribute("id", "thumbnails");
+picture.setAttribute("class","active");
+picture.src = pics[0];
+
+picture.addEventListener("mouseover", function(){
+     featuredImg.src = picture.src;
+})
+
+imageSliderIn.append(picture);
+
+
+let picture2 = document.createElement("img");
+picture2.setAttribute("id", "thumbnails");
+picture2.setAttribute("class","active");
+picture2.src = pics[1];
+
+picture2.addEventListener("mouseover", function(){
+     featuredImg.src = picture2.src;
+})
+imageSliderIn.append(picture2);
+
+
+
+
+let picture3 = document.createElement("img");
+picture3.setAttribute("id", "thumbnails");
+picture3.setAttribute("class","active");
+picture3.src = pics[2];
+
+picture3.addEventListener("mouseover", function(){
+     featuredImg.src = picture3.src;
+})
+
+imageSliderIn.append(picture3);
+
+
+
+let picture4 = document.createElement("img");
+picture4.setAttribute("id", "thumbnails");
+picture4.setAttribute("class","active");
+picture4.src = pics[3];
+
+picture4.addEventListener("mouseover", function(){
+     featuredImg.src = picture4.src;
+})
+
+imageSliderIn.append(picture4);
+
+
+
+
+
+imageSlider.append(imageSliderIn);
+console.log(imageSlider);
+
+imageSlider.append(rightImgSlide);
+console.log(imageSlider);
+
+mainDiv.append(imageSlider);
+
+
+
+let rightClick = document.getElementById("rtSlide");
+let leftClick = document.getElementById("ltSlide");
+
+
+rightClick.addEventListener("click",function(){
+       document.getElementById("slider").scrollTop += 180
+})
+
+leftClick.addEventListener("click",function(){
+       document.getElementById("slider").scrollTop -= 180
+})
+
+
+
+
+
+
+
+// Below is the function for add to bag
+
+
+if(localStorage.getItem("glammBag") === null) {
+    localStorage.setItem("glammBag", JSON.stringify([]));
+}
+
+let Flag = JSON.parse(localStorage.getItem('flag'));
+
+let user = localStorage.getItem("glammUsers");
+user = JSON.parse(user)
+
+let check = [];
+
+function addtoCart(p) {
+
+    let cart_data = JSON.parse(localStorage.getItem("glammBag"));
+
+
+
+    if(check.includes(p.name) == true) {
+        alert("Product is Already in The Cart.");
+
+        if (Flag != null) {
+
+            user.forEach(function(ele) {
+
+                if(ele.mobile == Flag) {
+    
+                    for(let i = 0; i < ele.cart.length; i++) {
+                        if(ele.cart[i].name === p.name) {
+                            +ele.cart[i].quantity++;
+                        }
+                    }
+                }
+            })
+        } else {
+
+            for(let i = 0; i < cart_data.length; i++) {
+                if(cart_data[i].name === p.name) {
+                    +cart_data[i].quantity++;
+                }
+            }
+        }
+
+
+    } else {
+        check.push(p.name)
+        p.quantity = 1;
+
+        if(Flag != null) {
+
+            user.forEach(function(ele) {
+
+                if(ele.mobile == Flag) {
+
+                    ele.cart.push(p)
+
+                }
+            })
+        } else {
+
+            cart_data.push(p);
+        }
+    }
+
+    if(Flag != null) {
+
+        localStorage.setItem("glammUsers", JSON.stringify(user));
+    } else {
+
+        localStorage.setItem("glammBag", JSON.stringify(cart_data));
+    }
+}
+</script>
