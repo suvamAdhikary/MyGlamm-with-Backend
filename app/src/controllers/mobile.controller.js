@@ -24,15 +24,16 @@ router.get('', async (req, res) => {
 router.get('/check/', async (req, res) => {
 
     try{
-
-        const mobile = Mobile.findOne({$and: [{countryCode: req.query.countryCode}, {mobile: req.query.ph}]}).lean().exec();
+        console.log(req.query.countryCode);
+        const mobile = await Mobile.findOne({$and: [{countryCode: req.query.countryCode}, {mobile: req.query.ph}]}).lean().exec();
         console.log(mobile);
-        res.render('pages/login.ejs', {
-            mobile
-        });
+        mobile ? res.render('pages/login.ejs', {
+                    mobile
+                }) : res.render('pages/signup.ejs', {
+                        mobile
+                    });
     } catch (err) {
         console.log(err);
-        res.render('pages/signup.ejs');
     }
 })
 

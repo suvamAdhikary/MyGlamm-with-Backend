@@ -1,0 +1,83 @@
+<div id="popUp"></div>
+	<div style="display: none">
+		<div id="openPopUp">
+			<div id="popUpContainer">
+				<div id="popUpModal">
+					<p class="backButton" onclick="closePopUp()" />Back btn</p>
+					<h3>Login</h3>
+					<p>Enter your phone number to continue</p>
+					<p id="loginLogo" />login logo</p>
+				</div>
+				<form id="signInForm">
+					<input disabled type="text" id="countryCode" placeholder="+91" />
+					<input type="text" pattern="[1-9]{1}[0-9]{9}" maxlength="10" id="phoneNumber" placeholder="Phone Number" />
+				</form>
+				<p id="alertNumber">Phone should contain minimum 10 digits</p>
+				<button id="continueButton" onclick="goToVerifyOTP()">
+					Continue
+				</button>
+
+				<div class="loginSignupSwitch">
+					Don’t have an account?
+					<span onclick="popUpSignup()" style="cursor: pointer" id="openSignUp">Sign Up</span>
+				</div>
+			</div>
+		</div>
+		<div id="signUpPopUp">
+			<div id="signContainer">
+				<div id="signUpModal">
+					<p class="backButton" onclick="closePopUp()" />Back Btn</p>
+					<h3>Sign Up</h3>
+					<p>Create a account with new phone number</p>
+					<p id="loginLogoSign" />Login logo</p>
+				</div>
+				<form id="signUpForm">
+					<input disabled type="text" id="countryCodeSignUp" placeholder="+91" />
+					<input type="text" pattern="[1-9]{1}[0-9]{9}" maxlength="10" name="number" id="phoneNumberSign"
+						placeholder="Phone Number" />
+					<p id="aNumber">Phone should contain minimum 10 digits</p>
+					<input style="display: block; width: 100%" type="text" name="name" id="userName" placeholder="Name" /><br />
+					<input style="display: block" type="text" id="email" name="email" placeholder="Email Address" /><br />
+					<p id="checkEmail">Please enter a valid email</p>
+					<!-- <button type="submit" id="continueButtonSign">
+						CREATE ACCOUNT
+					</button> -->
+				</form>
+				<button id="continueButtonSign" onclick="signUp()">
+					CREATE ACCOUNT
+				</button>
+
+				<p style="margin-left: 13px">
+					By creating an account, I accept the <span>Terms & Conditions</span>
+				</p>
+
+				<div class="loginSignupSwitch">
+					Already have an account?
+					<span onclick="popUpLogin()" style="cursor: pointer" id="openLoginUp">Log in</span>
+				</div>
+			</div>
+		</div>
+		<div id="otpVerify">
+			<div id="otpContainer">
+				<div id="otpModal">
+					<p class="backButton" onclick="closePopUp()" />Back btn</p>
+					<h3>Verify Details</h3>
+					<p id="detail"></p>
+					<p id="loginLogoOTP" />Login logo</p>
+				</div>
+				<form id="OTPForm">
+					<input type="text" pattern="[0-9]{4}" maxlength="4" id="OTP" placeholder="Enter OTP" />
+				</form>
+				<p id="sendOTP">OTP has been sent successfully</p>
+				<p id="alertOTP">Otp should contain minimum 4 digits</p>
+				<p id="resend">Resend OTP</p>
+				<button id="verifyButton" onclick="verify()">Continue</button>
+			</div>
+		</div>
+	</div>
+    <div id="credentialButtons">
+		<button id="login" onclick="popUpLogin()">Login</button>
+		<button id="signUp" onclick="popUpSignup()">Sign Up</button>
+		<button id="logout" onclick="logOut()">Log Out</button>
+	</div>
+</div>
