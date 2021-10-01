@@ -1,7 +1,13 @@
 /* #home__products{
     display: grid(4,repeat);
 } */
+#slide__container {
+    position: relative;
+    top: 160px;
+}
+
 main {
+    /* top: 2px !important; */
     padding-left: 10%;
     padding-right: 10%;
     align-items: center;

@@ -23,7 +23,7 @@
                 <p class="rating"><%= product.rating %></p>
                 <p class="rating__giver"><%= product.totalRatingGiver %> </p>
                 <p class="product__price"><%= product.price %> </p>
-                <button class="addtobag">ADD TO BAG</button>
+                <button id="addto__bag--btn" class="addtobag" onclick=`addtoBag(<% product._id %> )`>ADD TO BAG</button>
             </div>
         </section>
     </main>
@@ -32,3 +32,4 @@
     </footer>
 </body>
 </html>
+<script src="scripts/bag.js"></script>

@@ -1,48 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include("./components/head", {
-        title: "Buy Best International Premium Beauty Products & Luxury Cosmetics Online in India - MyGlamm"
-    }) %>
-<body>
-    <header>
-        <%- include("./components/header") %> 
-    </header>
-    <section>
-        <div id="slideshow__container"><a href=""><img id = "IMG" src="https://files.myglamm.com/site-images/original/Homepage-web-Website_1.jpg"   alt=""></a></div>
-        <script src="scripts/slideShow.js"></script>
-    </section>
-    <main>
-        <div class="images-container">
+<%- include("./components/head", {
+    title: "Buy Best International Premium Beauty Products & Luxury Cosmetics Online in India - MyGlamm" }) %>
 
-           <a href="#"><img class="img1__after--slideshow" src="https://files.myglamm.com/site-images/original/Lip-Sleek-Banner-Web.jpg" alt="image 1 after slideshow"></a>
+    <body>
+        <header>
+            <%- include("./components/header") %>
+        </header>
+        <section id="slide__container">
+            <div id="slideshow__container"><a href=""><img id="IMG"
+                        src="https://files.myglamm.com/site-images/original/Homepage-web-Website_1.jpg" alt=""></a>
+            </div>
+            <script src="scripts/slideShow.js"></script>
+        </section>
+        <main>
+            <div class="images-container">
 
-           <a href="#"><img class="img2__after--slideshow" src="https://files.myglamm.com/site-images/original/Homepage_15.jpg" alt="iamge 2 after slideshow"></a>
+                <a href="#"><img class="img1__after--slideshow"
+                        src="https://files.myglamm.com/site-images/original/Lip-Sleek-Banner-Web.jpg"
+                        alt="image 1 after slideshow"></a>
 
-           <p class="bestsellers">BESTSELLERS</p>
+                <a href="#"><img class="img2__after--slideshow"
+                        src="https://files.myglamm.com/site-images/original/Homepage_15.jpg"
+                        alt="iamge 2 after slideshow"></a>
 
-           <div id="home__products">
-            <% products.forEach((product) => { %>
+                <p class="bestsellers">BESTSELLERS</p>
 
-                <a href="<%= `products/${product._id}` %>" class="product-box">
-                    <img src="<%= product.imagesSmall[0] %>" alt="">
-                    <p><%= product.name %></p>
-                    <p><%= product.description %></p>
-                    <p><%= product.price %></p>   
-                </a>
-    
-                <%})%>
-           </div>
+                <div id="home__products">
+                    <% products.forEach((product)=> { %>
 
-        <div>
-        
-        <a href="#"><img  class="img2__before--video" src="https://files.myglamm.com/site-images/original/Community-Banner-2240-x-344_1.jpg" alt="img above video "/></a>
+                        <a href="<%= `categories/products/${product._id}` %>" class="product-box">
+                            <img src="<%= product.imagesSmall[0] %>" alt="">
+                            <p>
+                                <%= product.name %>
+                            </p>
+                            <p>
+                                <%= product.description %>
+                            </p>
+                            <p>
+                                <%= product.price %>
+                            </p>
+                        </a>
 
-        </div> 
-        
-    </main>
-    <footer>
-       <%- include("./components/footer") %> 
-    </footer>
-</body>
+                        <%})%>
+                </div>
+
+                <div>
+
+                    <a href="#"><img class="img2__before--video"
+                            src="https://files.myglamm.com/site-images/original/Community-Banner-2240-x-344_1.jpg"
+                            alt="img above video " /></a>
+
+                </div>
+
+        </main>
+        <footer>
+            <%- include("./components/footer") %>
+        </footer>
+    </body>
+
 </html>
-<%- include("./components/login") %>
+<script src="scripts/index.js"></script>

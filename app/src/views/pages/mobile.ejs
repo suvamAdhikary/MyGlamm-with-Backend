@@ -5,14 +5,14 @@
     }) %>
 <body>
     <header>
-        <%- include("../components/header") %> 
+        
     </header>
     <main>
         <div><p class="mobileNo">*Mobile Number</p></div>
         <div class="line"></div>
         <hr>
         
-        <form action="mobiles/check?" method="GET" id="mobile__info">
+        <!-- <form id="mobile__info"> -->
             <div>
             <label class = "countryLabel"for="country__code">COUNTRY CODE</label>
             <label class="mobile_label" for="mobile__no">*MOBILE NUMBER</label>
@@ -240,8 +240,8 @@
             <input id="mobile__no" type="text" name="ph">
             <p id="show__alert"></p>
             </div>
-            <input class ="continue" type="submit" value="CONTINUE">
-        </form>
+            <input id="ph__btn" class ="continue" type="submit" value="CONTINUE">
+        <!-- </form> -->
         <section>
             <div>
                 <div></div>

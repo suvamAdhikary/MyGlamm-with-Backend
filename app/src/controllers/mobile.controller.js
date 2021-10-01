@@ -21,17 +21,53 @@ router.get('', async (req, res) => {
     
 })
 
-router.get('/check/', async (req, res) => {
+router.get('/check/:countryCode/:ph', async (req, res) => {
 
     try{
-        console.log(req.query.countryCode);
+        
+        const mobile = await Mobile.findOne({$and: [{countryCode: req.params.countryCode}, {mobile: req.params.ph}]}).lean().exec();
+        console.log(mobile);
+        if(mobile === null) {
+            console.log("in" ,mobile);
+
+            res.render('pages/signup.ejs', {
+                mobile
+            });
+        } else {
+            console.log("in", mobile);
+            res.render('pages/login.ejs', {
+                mobile
+            })
+        }
+        // mobile ? res.render('pages/login.ejs', {
+        //             mobile
+        //         }) : 
+    } catch (err) {
+        console.log(err);
+    }
+})
+
+router.post('/check', async (req, res) => {
+    console.log(req.body);
+    try{
+        
         const mobile = await Mobile.findOne({$and: [{countryCode: req.query.countryCode}, {mobile: req.query.ph}]}).lean().exec();
         console.log(mobile);
-        mobile ? res.render('pages/login.ejs', {
-                    mobile
-                }) : res.render('pages/signup.ejs', {
-                        mobile
-                    });
+        if(mobile === null) {
+            console.log("in" ,mobile);
+
+            res.render('pages/signup.ejs', {
+                mobile
+            });
+        } else {
+            console.log("in", mobile);
+            res.render('pages/login.ejs', {
+                mobile
+            })
+        }
+        // mobile ? res.render('pages/login.ejs', {
+        //             mobile
+        //         }) : 
     } catch (err) {
         console.log(err);
     }
