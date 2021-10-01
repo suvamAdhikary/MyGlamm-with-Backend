@@ -5,13 +5,13 @@
 /* base */
 
 @import './base/reset.css';
-@import './base/typography.css';
+/* @import './base/typography.css'; */
 
 
 /* layout */
 
 @import './layout/header.css';
-
+@import './layout/footer.css';
 
 /* components */
 
@@ -19,10 +19,10 @@
 
 
 /* pages */
-
+@import './pages/index.css';
 
 
 /* utils */
 
-@import './utils/variables.css';
-@import './utils/utilities.css';
+/* @import './utils/variables.css'; */
+/* @import './utils/utilities.css'; */

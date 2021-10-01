@@ -1,14 +1,19 @@
-<div class="mainDivUser">
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../components/head", {
+        title: "MyGlamm - mobile"
+    }) %>
+<body>
     <header>
-        <button id="closeBtn">&times;</button>
-        <p class="paragraph">Get 15% MyGlammXO Points back on every order</p>
-        <!-- <img class="glamImg" src="/images/icons/usertel/logo-login.png" alt=""> -->
+        <%- include("../components/header") %> 
     </header>
     <main>
         <div><p class="mobileNo">*Mobile Number</p></div>
         <div class="line"></div>
         <hr>
-        <form action="mobile" method="GET" id="mobile__info" onsubmit="submitTel(event)">
+        
+        <form action="mobiles/check?" method="GET" id="mobile__info">
+            <div>
             <label class = "countryLabel"for="country__code">COUNTRY CODE</label>
             <label class="mobile_label" for="mobile__no">*MOBILE NUMBER</label>
             <select name="countryCode" id="country__code">
@@ -230,24 +235,29 @@
                     <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>
                 </optgroup>
             </select>
-            
-            
-            <input id="mobile__no" type="text" name="mobile" min="1000000000" max="9999999999">
+            </div>
+            <div>
+            <input id="mobile__no" type="text" name="ph">
             <p id="show__alert"></p>
-
-            <input class = "continue"type="submit" value="CONTINUE">
+            </div>
+            <input class ="continue" type="submit" value="CONTINUE">
         </form>
+        <section>
+            <div>
+                <div></div>
+                <p class="or-continue">or continue with</p>
+                <div></div>
+            </div>
+            <div class="fbBox">
+                <div class="fbDiv"><img id="ph__page--fbImg" src="/images/icons/usertel/facebook.png"> <h5>continue with facebook</h5></div>
+                <div class="googleDiv"><img id="ph__page--googleImg" src="/images/icons/usertel/ico-google.png"><h5>continue with google</h5></div>
+            </div>
+            <p class="tAndC">By Signing up you agree to our <a class = "termsLink" href="termsAndConditions">Terms & Conditions</a></p>
+        </section>
     </main>
     <footer>
-        <div>
-            <div></div>
-            <p class="or-continue">or continue with</p>
-            <div></div>
-        </div>
-        <div class="fbBox">
-            <div class="fbDiv"><img id="ph__page--fbImg" src="/images/icons/usertel/facebook.png"> <h5>continue with facebook</h5></div>
-            <div class="googleDiv"><img id="ph__page--googleImg" src="/images/icons/usertel/ico-google.png"><h5>continue with google</h5></div>
-        </div>
-        <p class="tAndC">By Signing up you agree to our <a class = "termsLink" href="termsAndConditions">Terms & Conditions</a></p>
+       <%- include("../components/footer") %> 
     </footer>
-</div>
+</body>
+</html>
+<script src="scripts/mobile.js"></script>

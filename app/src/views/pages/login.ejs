@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../components/head", {
+        title: "MyGlamm - login"
+    }) %>
+<body>
+    <header>
+        <%- include("../components/header") %> 
+    </header>
+    <main>
+        <p id="login__">VERIFY YOUR PHONE NUMBER</p>
+        <img src="images/mob-otp.png">
+        <p id="login__display--phone"></p>
+        <input type="password" id="login__otp" required autofocus>
+        <button id="login__verify">VERIFY</button>
+    </main>
+    <footer>
+       <%- include("../components/footer") %> 
+    </footer>
+</body>
+</html>
