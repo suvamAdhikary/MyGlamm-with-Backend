@@ -51,8 +51,10 @@ app.use('/reviews', reviewController);
 // Routes from routes
 
 const indexRoute = require('./routes/index.route');
-app.use('/myglamm', indexRoute);
+// const signupRoute = require('./routes/signup.route');
 
+app.use('/myglamm', indexRoute);
+// app.use('/signup', signupRoute);
 
 
 
