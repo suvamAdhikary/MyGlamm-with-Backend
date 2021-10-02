@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 app.use(express.static(path.join(__dirname, "public")));
-
+// app.use(express.static("public"))
 app.set("views", path.join(__dirname, "views"));
 
 app.set('view engine', 'ejs')
@@ -51,10 +51,12 @@ app.use('/reviews', reviewController);
 // Routes from routes
 
 const indexRoute = require('./routes/index.route');
-// const signupRoute = require('./routes/signup.route');
+const loginRoute = require('./routes/login.route');
+const signupRoute = require('./routes/signup.route');
 
 app.use('/myglamm', indexRoute);
-// app.use('/signup', signupRoute);
+app.use('/login', loginRoute);
+app.use('/signup', signupRoute);
 
 
 

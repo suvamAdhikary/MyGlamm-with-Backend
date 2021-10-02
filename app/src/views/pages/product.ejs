@@ -5,7 +5,7 @@
     }) %>
 <body>
     <header>
-        <%- include("../components/header") %>
+
     </header>
     <main>
         <section>HOME / <%= category.name %> / <%= product.name %></section>
@@ -23,7 +23,7 @@
                 <p class="rating"><%= product.rating %></p>
                 <p class="rating__giver"><%= product.totalRatingGiver %> </p>
                 <p class="product__price"><%= product.price %> </p>
-                <button id="addto__bag--btn" class="addtobag" onclick="addtoBag(<%= JSON.stringify(product._id) %> )">ADD TO BAG</button>
+                <button id="addto__bag--btn" class="addtobag" value="<%= product._id %>">ADD TO BAG</button>
             </div>
         </section>
     </main>
@@ -32,21 +32,34 @@
     </footer>
 </body>
 </html>
-<!-- <script src="../scripts/mobile.js"></script> -->
+<!-- <script src="scripts/mobile.js"></script> -->
 <script>
+
+
+let addBtn = document.getElementById("addto__bag--btn");
+
+addBtn.onclick = async  ()=> {
+
+
     let userId = JSON.parse(localStorage.getItem('flag'));
-async function addtoBag(productId) {
-    let user = await fetch(`http://localhost:5555/${userId}`);
+
+    console.log("In");
+    let user = await fetch(`http://localhost:5555/users/${userId}`);
+    user = await user.json();
+    console.log(user);
     try {
-       let product = await fetch(`http://localhost:5555/bags/${productId}/${userId}`)
-       await fetch(`http://localhost:5555/bags/${product._id}`, {
+       let product = await fetch(`http://localhost:5555/bags/${addBtn.value}/${userId}`)
+       product = await product.json();
+       console.log("product", product);
+       if(product !== null) {
+        await fetch(`http://localhost:5555/bags/${product._id}`, {
             method: 'PATCH',
             body: JSON.stringify({
                 quantity: `${+product.quantity + 1}`
             }),
             headers: {"content-type": 'application/json'},
        })
-    } catch (err) {
+       } else {
         await fetch(`http//localhost:5555/bags`, {
             method: 'POST',
             body: JSON.stringify ({
@@ -62,6 +75,30 @@ async function addtoBag(productId) {
             }),
             headers: {"content-type": 'application/json'}
         })
+       }
+       await fetch(`http://localhost:5555/bags/${product._id}`, {
+            method: 'PATCH',
+            body: JSON.stringify({
+                quantity: `${+product.quantity + 1}`
+            }),
+            headers: {"content-type": 'application/json'},
+       })
+    } catch (err) {
+        // await fetch(`http//localhost:5555/bags`, {
+        //     method: 'POST',
+        //     body: JSON.stringify ({
+        //         productId,
+        //         userId,
+        //         quantity: 1,
+        //     })
+        // })
+        // await fetch(`http//localhost:5555/users/${userId}`, {
+        //     method: 'PATCH',
+        //     body: JSON.stringify ({
+        //         totalItemsInBag: `${user.totalItemsInBag + 1}`
+        //     }),
+        //     headers: {"content-type": 'application/json'}
+        // })
     }    
 }
 </script>

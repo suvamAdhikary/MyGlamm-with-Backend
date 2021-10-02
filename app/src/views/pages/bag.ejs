@@ -8,11 +8,22 @@
         <%- include("../components/header") %>
     </header>
     <main>
-        <p>MY BAG(<span id="total__products"></span>)</p>
-        <div id="bag__items"></div>
+        <p>MY BAG <span id="total__products"><%= user.totalItemsInBag %></span> </p>
+        <div id="bag__items">
+            <% bag.forEach((product) => { %>
+                <div class="bag__product--box">
+                    <img src="<%= product.imagesSmall[0] %>" alt="">
+                    <p><%= product.name %></p>
+                    <p><%= product.price %></p>
+                    <input type="number" value="<%= product.quantity %>" placeholder="<%= product.quantity %>">
+                    <p><%= product.total %></p>
+                    <button><span class="material-icons-outlined">clear</span></button>
+                </div>
+            <%})%>
+        </div>
         <div id="cart__cashback">
             <p>You will earn <span id="cashback"></span> as cashback on this order.</p>
-            <p>GRAND TOTAL <span id="checkout__price"></span></p>
+            <p>GRAND TOTAL <span id="checkout__price"><%= user.totalPrice %></span></p>
         </div>
         <button id="checkout__btn"><a id="checkout__link">PROCEED TO CHECKOUT</a></button>
     </main>

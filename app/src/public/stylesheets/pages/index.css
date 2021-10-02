@@ -96,3 +96,47 @@ main {
     padding-bottom: 5px;
     
 }
+
+
+
+
+
+
+/* Rajat */
+
+
+
+
+
+/* Rajat */
+
+#container {
+    margin-bottom: 10px;
+}
+
+#divElement {
+  position: absolute;
+  top: 185px;
+}
+
+.active{
+  
+  width: 1100px;
+  height: 400px;
+  margin-left: 100px;
+  margin-top: -25px;
+  display: block;
+  background-color: white;
+  padding: 2%;
+  border-radius: 2px;
+  padding-top: 1rem;
+  border-top: 0.1px solid grey;
+}
+#modalHead{
+  color: #f5a0a0;
+  
+}
+.modalHead{
+  color: #f5a0a0;
+  
+}

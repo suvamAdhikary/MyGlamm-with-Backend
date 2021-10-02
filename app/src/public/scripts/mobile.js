@@ -2,23 +2,43 @@
 // let router = express.Router();
 
 let mobile = document.getElementById('ph__btn');
-mobile.onclick = function () {
+mobile.onclick = async function () {
 
     let code = document.getElementById('country__code').value;
     let ph = document.getElementById('mobile__no').value;
-    // try {
-      fetch(`http://localhost:5555/mobiles/check`, {
+
+    try {
+
+        // let mobile = await fetch(`http://localhost:5555/mobiles/check/${code}/${ph}`);
+
+        // mobile = await mobile.json();
+        // console.log("json", mobile);
+        let newph = await fetch(`http://localhost:5555/mobiles/`, {
             method: "POST",
             body: JSON.stringify({
-                code,
-                ph
+                countryCode: code,
+                mobile: ph
             }),
             headers: {"content-type": 'application/json'}
-        }) .then (function (response) {
-            return response.json();
-        }).then (function (response) {
-            console.log(response);
         })
+        // newph = await newph.json();
+        // console.log(newph);
+        // console.log(`${newph.item.countryCode}${newph.item.mobile}`);
+        // window.location.href = `http://localhost:5555/users/${newph.item._id}/${newph.item.countryCode}${newph.item.mobile}`
+        // window.location.href = `http://localhost:5555/signup`;
+
+    //   fetch(`http://localhost:5555/mobiles/check`, {
+    //         method: "POST",
+    //         body: JSON.stringify({
+    //             code,
+    //             ph
+    //         }),
+    //         headers: {"content-type": 'application/json'}
+    //     }) .then (function (response) {
+    //         return response.json();
+    //     }).then (function (response) {
+    //         console.log(response);
+    //     })
 
         // mobile ? res.render('pages/login.ejs', {
         //     mobile
@@ -26,9 +46,25 @@ mobile.onclick = function () {
         //         mobile
         // });
 
-    // } catch (err) {
-    //     res.send(err);
-    // }
+    } catch (err) {
+
+        window.location.href = `http://localhost:5555/login`
+        // await fetch(`http://localhost:5555/signup`, {
+
+        //     method: "POST",
+        //     body: JSON.stringify({
+        //         countryCode: code,
+        //         mobile: ph
+        //     }),
+        //     headers: {"content-type": 'application/json'}
+        // });
+        // let data = await newMobile.json()
+        // console.log(newMobile, "and", data);
+        // await fetch(`http://localhost:5555/signup/${newMobile._id}`)
+        // window.location.href = `http://localhost:5555/signup`
+        // console.log("err", err);
+        // res.send(err);
+    }
 }
 
 // let mobile = document.getElementById('mobile__info');

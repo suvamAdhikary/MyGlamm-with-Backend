@@ -26,12 +26,16 @@ router.get('/check/:countryCode/:ph', async (req, res) => {
     try{
         
         const mobile = await Mobile.findOne({$and: [{countryCode: req.params.countryCode}, {mobile: req.params.ph}]}).lean().exec();
-        console.log(mobile);
+        console.log( "frmCntrl", mobile);
+        // return res.status(200).send(mobile);
+
+        // console.log(mobile);
         if(mobile === null) {
             console.log("in" ,mobile);
 
             res.render('pages/signup.ejs', {
-                mobile
+                code: req.params.countryCode,
+                ph: req.params.ph
             });
         } else {
             console.log("in", mobile);
@@ -39,10 +43,14 @@ router.get('/check/:countryCode/:ph', async (req, res) => {
                 mobile
             })
         }
+        // return;
         // mobile ? res.render('pages/login.ejs', {
         //             mobile
         //         }) : 
     } catch (err) {
+        // res.render('pages/signup.ejs', {
+        //         mobile
+        //     })
         console.log(err);
     }
 })

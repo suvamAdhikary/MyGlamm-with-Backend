@@ -1,8 +1,10 @@
+const { json } = require('body-parser');
 const express = require('express');
 
 const router = express.Router();
 
 const User = require('../models/user.model');
+const Mobile = require('../models/mobile.model');
 
 const crudController = require('./crud.controller');
 
@@ -13,7 +15,30 @@ router.patch('/:id', crudController.updateOne(User));
 router.delete('/:id', crudController.deleteOne(User));
 
 
+// login route 
+// router.get('/login', (req, res)=> {
+//     res.render('pages/login')
+// })
 
+
+// signup controller start here
+
+// router.post('', async (req, res) => {
+//     let body = JSON.stringify({
+//         _id: req.body._id,
+//         mobileId: req.body.mobileId,
+//         full_name: req.body.full_name,
+//         email: req.body.email
+//     })
+//     console.log(body);
+//     try {
+//         const user = await User.create(body);
+    
+//         return res.status(201).send({user})
+//     } catch (err) {
+//         return res.status(400).send({err})
+//     }
+// })
 
 // router.get('/mobiles', check({mobile: "required"}), async (req, res) => {
 //     let code = req.body.countryCode;
@@ -46,6 +71,43 @@ router.delete('/:id', crudController.deleteOne(User));
 //         next();
 //     }
 // }
+
+router.get('/:mobileId/:id', async (req, res) => {
+
+    try{
+        const mobile = await Mobile.findById(req.params.mobileId).lean().exec();
+        const user = await User.findById(req.params.id).lean().exec();
+        console.log( "frmCntrl", mobile);
+        // return res.status(200).send(mobile);
+
+        // console.log(mobile);
+        if(user === null) {
+            console.log("in" ,user);
+
+            res.render('pages/signup.ejs', {
+                mobile,
+                id: req.params.id
+            });
+        } else {
+            console.log("in", user);
+            res.render('pages/login.ejs', {
+                mobile,
+                id: req.params.id
+            })
+        }
+        return;
+        // mobile ? res.render('pages/login.ejs', {
+        //             mobile
+        //         }) : 
+    } catch (err) {
+        // res.render('pages/signup.ejs', {
+        //         mobile
+        //     })
+        res.send(mobile);
+        console.log(err);
+    }
+})
+
 
 
 

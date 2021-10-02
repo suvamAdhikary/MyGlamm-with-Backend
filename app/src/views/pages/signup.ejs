@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <%- include("../components/head", {
@@ -12,20 +13,27 @@
         <p id="signup__display--phone"></p>
         
         <form id="form__signup">
+            <input style="display: none;" type="hidden" name="mobileId" value="<%= mobile._id %>">
             <input type="password" id="signup__otp" autofocus required>
             <label id="nameLabel" for="signup__name">Name</label>    
     
-            <label id = "emailLabel"for="signup__email">Email</label>
-            <input id = "signup__name" type="text" placeholder="*Full Name" required autofocus autocomplete="name">
+            <label id = "emailLabel" for="signup__email">Email</label>
+            <input id = "signup__name" name="full_name" type="text" placeholder="*Full Name" required autofocus autocomplete="name">
 
-            <input id = "signup__email" type="email" placeholder="*Email Address" required autofocus autocomplete="email">
+            <input id = "signup__email" name="email" type="email" placeholder="*Email Address" required autofocus autocomplete="email">
 
-            <button id="signup__verify">VERIFY</button>
+            <button id="signup__verify" name="_id", value="<%= id %>">VERIFY</button>
         </form> 
     </main>
     <footer>
-       <%- include("../components/footer") %> 
+
     </footer>
 </body>
 </html>
-<script src="scripts/signup.js"></script>
+<!-- <script src="scripts/signup.js"></script> -->
+<script>
+    document.getElementById("form__signup").onsubmit = (e) => {
+        e.preventDefault();
+        
+    }
+</script>
