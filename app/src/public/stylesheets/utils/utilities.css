@@ -1,0 +1,29 @@
+/* variables */
+
+:root {
+    --font-large: 1.5rem;
+    --font-small: 0.875rem;  /* 14px */
+    --font-mid: 1rem; /* 16px */
+
+
+    /* Colour */
+
+    --bg-color-main: #F5F5F6;
+    --bg-color-ad: #fbe7e7;
+    --bg-color-white: #FFFFFF;
+    --bg-color-headings: #f39596;
+    --bg-color-form: #f7f7f7;
+
+    --border-color-gray: #e4e4ee;
+}
+* {
+    color: #FEE8E8, #F5F5F6;
+}
+
+
+/* utilities */
+.flex {
+    display: flex;
+}
+
+

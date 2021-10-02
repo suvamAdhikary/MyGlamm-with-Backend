@@ -87,3 +87,12 @@ main {
     width: 100%;
   } */
   
+
+  .line{
+
+
+    text-decoration: underline 5px #fdb2b2;
+    z-index: -1;
+    padding-bottom: 5px;
+    
+}
