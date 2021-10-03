@@ -1,0 +1,59 @@
+main {
+    background-color: #FFFFFF;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+#payment-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#payment-container > nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+.stylebar, .side__stylebar:hover {
+    background-color: #fcf8ed;
+    border: 1px solid #000000;
+    border-radius: 3%;
+}
+#payment__card {
+    background-color: #fcf8ed;
+    border: 1px solid #000000;
+    border-radius: 3%;
+}
+.stylebar {
+    display: flex;
+    justify-content: space-between;
+}
+
+form > lebel, form > input, form > div > lebel, form > div > input, .side__stylebar, .stylebar {
+    padding: 2%;
+}
+
+.pay__form--cont {
+    width: 100%;
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-between;
+}
+
+#card__dates {
+    width: 40%;
+    display: flex;
+}
+#card__dates > input {
+    width: 30%;
+    height: 100%;
+    padding: 1%;
+    margin: 1%;
+}
+#proceed__btn {
+    margin-top: 20px;
+}

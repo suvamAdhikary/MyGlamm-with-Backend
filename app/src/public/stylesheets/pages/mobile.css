@@ -1,0 +1,159 @@
+ .mainDivUser{
+     border: 1px solid black;
+     width: 35%;
+     height: 600px;
+     margin: auto;
+     
+     margin-top: 5rem;
+ }
+
+
+ #closeBtn{
+     float: right;
+     border: none;
+     color: rgba(0,0, 0, 0.7);
+     margin-right: 20px;
+     
+ }
+ #closeBtn:hover{
+     width: 2rem;
+     height: 2rem;
+     color: rgba(0,0, 0, 1);
+ }
+
+ .paragraph{
+     font-size: 0.8rem;
+     text-align: center;
+     margin-top: 1rem;
+ }
+
+.glamImg{
+    width: 75%;
+    height: 90px;
+    margin-left: 3.9rem;
+}
+.mobileNo{
+    font-size: 0.9rem;
+    font-size: large;
+    margin-left: 30px;
+   
+
+}
+.line{
+    width: 122.48px;
+    border: 2px solid black;
+    margin-left: 30px;
+    margin-top: 1rem;
+}
+
+hr {
+    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+#country__code{
+    
+    margin-left: 2rem;
+    margin-top: 0;
+    display: inline;
+    width: 6rem;
+    height: 2.2rem;
+}
+.countryLabel{
+    
+    font-size: 0.7rem;
+    
+    margin-bottom: 0px;
+    margin-left: 2rem;
+
+}
+.mobile_label{
+    font-size: large;
+    font-size: 0.7rem;
+    margin-left: 2.5rem;
+    margin-right: 9rem;
+}
+#mobile__no{
+   margin-left: 2rem;
+    width: 18rem;
+    height: 2rem;
+
+
+}
+
+.continue{
+     margin-left: 2rem;
+    height: 1.6rem;
+    background-color: black;
+    color: white;
+    width: 86%;
+    height: 2.7rem;
+    margin-top: 0.8rem;
+
+}
+.or-continue{
+    text-align: center;
+}
+.fbDiv{
+    display: flex;
+    margin-left: 2rem;
+    border: 0.8px solid rgb(0, 0, 0,0.8);
+    
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#ph__page--fbImg{
+    width: 0.9rem;
+    height: 0.9rem;
+    margin-top: 1.5rem;
+    margin-right: 0.5rem;
+}
+.googleDiv{
+    display: flex;
+    margin-left: 1rem;
+    border: 0.8px solid rgb(0, 0, 0,0.8);
+    padding-left: 1rem;
+    padding-right: 2rem;
+
+}
+    
+#ph__page--googleImg{
+    width: 0.9rem;
+    height: 0.9rem;
+    margin-top: 1.5rem;
+    margin-right: 0.5rem;
+}
+.fbBox{
+    
+  
+    display: flex;
+    margin-left: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+   
+    
+
+}
+
+.tAndC{
+    
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}
+.termsLink{
+    color: black;
+    font-size: large;
+    font-style: normal;
+    text-decoration: none;
+}

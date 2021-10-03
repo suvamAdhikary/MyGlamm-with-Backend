@@ -1,0 +1,69 @@
+main{
+    border: 1px solid black;
+    width: 70%;
+    height: 600px;
+    margin: auto;
+    margin-top: 0 ;
+    background-color: white;
+
+}
+.headP{
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 1.2rem;
+    color: rgb(2, 2, 2,0.7);
+}
+#signup__display--phone{
+    text-align: center;
+    color: rgb(2, 2, 2,0.7);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+}
+
+#signup__otp{
+ 
+    margin-top: 2rem;
+    margin-left: 20rem;
+    border-top: hidden;
+    border-left: hidden;
+    border-right: hidden;
+    margin-bottom: 2rem;
+    height: 3rem;
+    
+
+}
+#nameLabel{
+    margin-left: 8rem;
+    margin-right: 18.6rem;
+    
+
+}
+#emailLabel{
+    margin-right: 14rem;
+   
+}
+#signup__name{
+    margin-left: 8rem;
+    width: 17rem;
+    height: 3rem;
+    
+}
+
+#signup__email{
+    margin-left: 4rem;
+    width: 25rem;
+    height: 3rem;
+    margin-right: 1rem;
+
+}
+
+
+#signup__verify{
+    height: 3rem;
+    margin-left: 18rem;
+    width: 28rem;
+    background-color: black;
+    color: white;
+    margin-top: 3rem;
+}
