@@ -49,8 +49,9 @@ router.get('/checkout/:userId', async(req, res)=> {
         bag.forEach(({productId:id})=>{
             productsId.push(id);
         })
-        let products = await Product.find({$in: {_id: productsId}}).lean().exec();
+        let products = await Product.find({_id: {$in: productsId}}).lean().exec();
         console.log("inCheckoutBag :", bag, "user :", user, productsId, products, address);
+        console.log(bag.length, products.length);
         res.render('pages/checkout.ejs', {
             bag,
             products,

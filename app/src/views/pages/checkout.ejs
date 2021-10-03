@@ -19,13 +19,22 @@
                <hr>
                <div id="shipping__address--ch">
                    <div>
-                       <p id="small__heading"></p>
-                       <p id="small__address"></p>
-                       <p id="small__address2"></pemail >
+                       <h4 id="small__heading"><%= address.full_name %></h4>
+                       <p id="small__address">
+                        <%= address.houseNo %>,
+                        <%= address.streetName %>,
+                        <%= address.neighborhood %>,
+                        <%= address.landmark %>
+                       </p>
+                       <p id="small__address2">
+                        <%= address.city %>,
+                        <%= address.state %>,
+                        <%= address.pincode %>
+                       </p>
                    </div>
                    <div>
-                       <p id="small__ph"></p>
-                       <p id="small__email"></p>
+                       <p id="small__ph"><%= address.mobile %></p>
+                       <p id="small__email"><%= address.email %>,</p>
                    </div>
                </div>
                <button id="address__change--btn">Change</button>
@@ -43,15 +52,15 @@
            <div id="order__summary">
             <div class="os__flex__container">
                 <p>Total Amount</p>
-                <p id="checkout__total"></p>
+                <p id="checkout__total">₹ <%= user.totalPrice %> </p>
             </div>
             <div class="os__flex__container">
                 <p>Shipping Charges</p>
-                <p id="checkout__shipping"></p>
+                <p id="checkout__shipping">FREE</p>
             </div>
             <div class="os__flex__container">
                 <p>Discount</p>
-                <p id="checkout__discount"></p>
+                <p id="checkout__discount">(₹ 0.00)</p>
             </div>
             <label id="promo__heading" for="checkout__promo">Apply Promo Code</label>
             <div class="os__flex__container" id="checkout__promo--container">
@@ -64,21 +73,32 @@
             </div>
             <div class="os__flex__container">
                 <p>Amount Payable</p>
-                <p id="checkout__payable"></p>
+                <p id="checkout__payable">₹ <%= user.totalPrice %> </p>
             </div>
             <div class="os__flex__container">
                 <p>You Saved</p>
-                <p id="checkout__saved"></p>
+                <p id="checkout__saved">₹ 0.00</p>
             </div>
             <div class="os__flex__container">
                 <p>You will earn</p>
-                <p id="checkout__earn"></p>
+                <p id="checkout__earn">₹ 0.00</p>
             </div>
             <input id="payment__link" type="submit" value="PROCEED TO PAYMENT">
            </div>
            <div id="your__order">
                <p>YOUR ORDER</p>
-               <div id="orderd__products"></div>
+               <div id="orderd__products">
+                    <% products.forEach((product, i) => { %>
+
+                    <div class="productCheck">
+                        <img src="<%= product.imagesSmall[0] %>" alt="">
+                        <p><%= product.name %></p>
+                        <p><%= bag[i].quantity %></p>
+                        <p>₹ <%= (bag[i].quantity * product.price) %></p>   
+                    </div>
+        
+                    <%})%>
+               </div>
            </div>
        </div>
        <hr>
@@ -87,5 +107,14 @@
     <footer></footer>
 </body>
 </html>
+<script>
+    let paymentBtn = document.getElementById("payment__link")
+
+    paymentBtn.onclick = async ()=> {
+
+        let id = JSON.parse(localStorage.getItem('id'));
+        window.location.href = `http://localhost:5555/payments/user/${id}`;
+    }
+</script>
 
 
