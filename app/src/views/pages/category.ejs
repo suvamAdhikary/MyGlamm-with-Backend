@@ -8,22 +8,33 @@
         <%- include("../components/header") %>
     </header>
 
-    <main>
+    <main class="container">
+
+
         <p>HOME /<%= category.name %></p>
         <hr>
         <h3><%= category.name %></h3>
-        <section  id="category__products">
-            <% products.forEach((product) => { %>
+        <hr>
+        <% products.forEach((product) => { %>
+        <a href="<%= `products/${product._id}` %>"><div class="row row-cols-1 row-cols-md-3 g-5">
+            <div class="col">
+                <div class="card">
+                  <img src="<%= product.imagesSmall[0] %>" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title fw-bold"><%= product.name %> ...</h5>
+                    <p class="card-text fs-5 text detail"><%= product.description %></p>
+                  </div>
+                  <p class="fs-4 text mx-3 box">&#x20B9 <%= product.price %></p>
+                </div>
+            </div> 
+        </div>
+        </a>
+        <%})%>
+        <hr>
 
-            <a href="<%= `products/${product._id}` %>" class="product-box">
-                <img src="<%= product.imagesSmall[0] %>" alt="">
-                <p><%= product.name %></p>
-                <p><%= product.description %></p>
-                <p><%= product.price %></p>   
-            </a>
 
-            <%})%>
-        </section>
+        <!-- ______________________________________ -->
+
     </main>
     <footer>
         <%- include("../components/footer") %> 
