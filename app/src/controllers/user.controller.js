@@ -72,43 +72,50 @@ router.delete('/:id', crudController.deleteOne(User));
 //     }
 // }
 
-router.get('/:mobileId/:id', async (req, res) => {
+// router.get('/:mobileId/:id', async (req, res) => {
 
+//     try{
+//         const mobile = await Mobile.findById(req.params.mobileId).lean().exec();
+//         const user = await User.findById(req.params.id).lean().exec();
+//         console.log( "frmCntrl", mobile);
+//         // return res.status(200).send(mobile);
+
+//         // console.log(mobile);
+//         if(user === null) {
+//             console.log("in" ,user);
+
+//             res.render('pages/signup.ejs', {
+//                 mobile,
+//                 id: req.params.id
+//             });
+//         } else {
+//             console.log("in", user);
+//             res.render('pages/login.ejs', {
+//                 mobile,
+//                 id: req.params.id
+//             })
+//         }
+//         return;
+//         // mobile ? res.render('pages/login.ejs', {
+//         //             mobile
+//         //         }) : 
+//     } catch (err) {
+//         // res.render('pages/signup.ejs', {
+//         //         mobile
+//         //     })
+//         res.send(mobile);
+//         console.log(err);
+//     }
+// })
+
+router.get('/mobile/:mid', async (req, res)=> {
     try{
-        const mobile = await Mobile.findById(req.params.mobileId).lean().exec();
-        const user = await User.findById(req.params.id).lean().exec();
-        console.log( "frmCntrl", mobile);
-        // return res.status(200).send(mobile);
-
-        // console.log(mobile);
-        if(user === null) {
-            console.log("in" ,user);
-
-            res.render('pages/signup.ejs', {
-                mobile,
-                id: req.params.id
-            });
-        } else {
-            console.log("in", user);
-            res.render('pages/login.ejs', {
-                mobile,
-                id: req.params.id
-            })
-        }
-        return;
-        // mobile ? res.render('pages/login.ejs', {
-        //             mobile
-        //         }) : 
-    } catch (err) {
-        // res.render('pages/signup.ejs', {
-        //         mobile
-        //     })
-        res.send(mobile);
-        console.log(err);
+        const user = await User.findOne({mobileId: req.params.mid}).lean().exec();
+        return res.send(user);
+    } catch(err){
+        res.send(err);
     }
 })
-
-
 
 
 module.exports = router;

@@ -10,9 +10,9 @@
     </header>
     <main>
         <p class="headP">VERIFY YOUR PHONE NUMBER TO COMPLETE YOUR REGISTRATION</p>
-        <p id="signup__display--phone"></p>
+        <p id="signup__display--phone"><%= mobile.countryCode %>-<%= mobile.mobile %></p>
         
-        <form id="form__signup">
+        <form action="/users" method="post" id="form__signup">
             <input style="display: none;" type="hidden" name="mobileId" value="<%= mobile._id %>">
             <input type="password" id="signup__otp" autofocus required>
             <label id="nameLabel" for="signup__name">Name</label>    
@@ -32,8 +32,8 @@
 </html>
 <!-- <script src="scripts/signup.js"></script> -->
 <script>
-    document.getElementById("form__signup").onsubmit = (e) => {
-        e.preventDefault();
+    // document.getElementById("form__signup").onsubmit = (e) => {
+    //     e.preventDefault();
         
-    }
+    // }
 </script>

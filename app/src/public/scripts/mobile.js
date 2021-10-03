@@ -21,7 +21,7 @@ mobile.onclick = async function () {
             }),
             headers: {"content-type": 'application/json'}
         })
-        // newph = await newph.json();
+        newph = await newph.json();
         // console.log(newph);
         // console.log(`${newph.item.countryCode}${newph.item.mobile}`);
         // window.location.href = `http://localhost:5555/users/${newph.item._id}/${newph.item.countryCode}${newph.item.mobile}`

@@ -8,14 +8,23 @@
         <%- include("../components/header") %> 
     </header>
     <main>
+        <input id="mobile_id" style="display: none;" type="hidden" name="id" value="<%= mobile._id %>">
         <p id="login__">VERIFY YOUR PHONE NUMBER</p>
         <img src="images/mob-otp.png">
-        <p id="login__display--phone"></p>
+        <p id="login__display--phone"><%= mobile.countryCode %>-<%= mobile.mobile %> </p>
         <input type="password" id="login__otp" required autofocus>
         <button id="login__verify">VERIFY</button>
     </main>
     <footer>
-       <%- include("../components/footer") %> 
+
     </footer>
 </body>
 </html>
+<script>
+    const id = document.getElementById("mobile_id").value;
+    
+    const btn = document.getElementById("login__verify").onclick = ()=> {
+        localStorage.setItem("flag", JSON.stringify(id));
+        window.location.href = `http://localhost:5555/myglamm`;
+    }
+</script>

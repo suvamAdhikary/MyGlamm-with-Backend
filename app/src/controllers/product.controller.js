@@ -9,7 +9,7 @@ const crudController = require('./crud.controller');
 
 router.post('', crudController.post(Product));
 router.get('', crudController.get(Product));
-// router.get('/:id', crudController.getOne(Product));
+router.get('/:id', crudController.getOne(Product));
 router.patch('/:id', crudController.updateOne(Product));
 router.delete('/:id', crudController.deleteOne(Product));
 
