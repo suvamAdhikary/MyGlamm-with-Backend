@@ -5,7 +5,7 @@
     }) %>
 <body>
     <header>
-
+        <%- include("../components/header") %>
     </header>
     <main>
         <section>HOME / <%= category.name %> / <%= product.name %></section>
@@ -69,6 +69,7 @@ addBtn.onclick = async  ()=> {
        })
 
        updateUser((user.totalItemsInBag + 1), (user.totalPrice + bagItem.product.price), user._id)
+       Window.location.reload()
        } else {
 
         let product = await fetch(`http://localhost:5555/products/${addBtn.value}`);
@@ -88,6 +89,7 @@ addBtn.onclick = async  ()=> {
         bagitem = await bagitem.json();
 
         updateUser((user.totalItemsInBag + 1), (user.totalPrice + product.item.price), user._id)
+        Window.location.reload()
        }
     } catch (err) {
         console.log("err", err);

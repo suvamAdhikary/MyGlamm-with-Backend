@@ -3,6 +3,9 @@ const express = require('express');
 const router = express.Router();
 
 const Bag = require('../models/bag.model');
+const User = require('../models/user.model');
+const Product = require('../models/product.model');
+const Address = require('../models/address.model');
 
 const crudController = require('./crud.controller');
 
@@ -12,41 +15,52 @@ router.get('/:id', crudController.getOne(Bag));
 router.patch('/:id', crudController.updateOne(Bag));
 router.delete('/:id', crudController.deleteOne(Bag));
 
-router.get('/user/:userId/:productId', async (req, res)=> {
+// for cart
+router.get('/user/:userId', async (req, res)=> {
     console.log("in bag......");
     try {
-        let product = await Bag.findOne({$and: [{productId: req.params.productId, userId: req.params.userId}]}).lean().exec();
-        res.send({product});
-
-        // if(product !== null) {
-        //     await fetch(`http://localhost:5555/bags/${product._id}`, {
-        //         method: 'PATCH',
-        //         body: JSON.stringify({
-        //             quantity: `${+product.quantity + 1}`
-        //         }),
-        //         headers: {"content-type": 'application/json'},
-        //    })
-        //    } else {
-        //     await fetch(`http//localhost:5555/bags`, {
-        //         method: 'POST',
-        //         body: JSON.stringify ({
-        //             productId,
-        //             userId,
-        //             quantity: 1,
-        //         })
-        //     })
-        //     await fetch(`http//localhost:5555/users/${userId}`, {
-        //         method: 'PATCH',
-        //         body: JSON.stringify ({
-        //             totalItemsInBag: `${user.totalItemsInBag + 1}`
-        //         }),
-        //         headers: {"content-type": 'application/json'}
-        //     })
-        //    }
-
+        let productsId = [];
+        let bag = await Bag.find({$and: [{userId: req.params.userId}]}).lean().exec();
+        let user = await User.findById(req.params.userId).lean().exec();
+        bag.forEach(({productId:id})=>{
+            productsId.push(id);
+        })
+        let products = await Product.find({$in: {_id: productsId}}).lean().exec();
+        console.log("bag :", bag, "user :", user, productsId, products);
+        // res.send({products});
+        res.render('pages/bag.ejs', {
+            bag,
+            products,
+            user
+        })
     }catch(err){
         res.send(err);
     }
+})
+
+// for checkout
+router.get('/checkout/:userId', async(req, res)=> {
+    console.log("inCheckout");
+    try{
+        let productsId = [];
+        let bag = await Bag.find({$and: [{userId: req.params.userId}]}).lean().exec();
+        let user = await User.findById(req.params.userId).lean().exec();
+        let address = await Address.findOne({userId: req.params.userId}).lean().exec();
+        bag.forEach(({productId:id})=>{
+            productsId.push(id);
+        })
+        let products = await Product.find({$in: {_id: productsId}}).lean().exec();
+        console.log("inCheckoutBag :", bag, "user :", user, productsId, products, address);
+        res.render('pages/checkout.ejs', {
+            bag,
+            products,
+            user,
+            address
+        })
+    } catch(err) {
+        res.send(err);
+    }
+    // res.render('pages/checkout.ejs')
 })
 
 module.exports = router;

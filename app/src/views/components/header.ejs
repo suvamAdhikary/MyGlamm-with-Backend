@@ -17,8 +17,9 @@
     </a>
     <input type="search" id="search__bar" placeholder="Find Lipstick, Eyeliner, Makeup Tutorial, etc">
     <a href="referandearn" id="refer__earn">Refer & Earn</a>
-    <a href="bags" id="bag__link">
-        <span class="material-icons-outlined">shopping_cart<span id=bag__count></span></span>
+    <a id="bag__link">
+        <span class="material-icons-outlined">shopping_cart</span>
+        <span id=bag__count></span>
     </a>
     <a href="/" id="profile">
         <span class="material-icons-outlined">
@@ -49,6 +50,51 @@
 <!-- <script src="scripts/header.js"></script> -->
 <script>
 
+// bag
+
+let bagIcon = document.getElementById("bag__link")
+
+// window.onload = async ()=> {
+//     let id = JSON.parse(localStorage.getItem('flag'));
+//     console.log(id);
+//     try{
+//         console.log("innn");
+//         let user = await fetch(`http://localhost:5555/users/mobile/${id}`);
+//         user = await user.json()
+//     } catch (err) {
+//         console.log(err);
+//     }
+// }
+
+// show bag count
+
+const showBagCount = async ()=> {
+    let id = JSON.parse(localStorage.getItem('flag'));
+    try{
+
+        let user = await fetch(`http://localhost:5555/users/mobile/${id}`);
+        user = await user.json();
+        document.getElementById("bag__count").textContent= user.totalItemsInBag;
+        localStorage.setItem("id", JSON.stringify(user._id))
+    } catch (err) {
+        console.log(err);
+    }
+}
+showBagCount();
+
+// render to bag page
+
+bagIcon.onclick =async () => {
+    let id = JSON.parse(localStorage.getItem('id'));
+    try{
+        window.location.href = `http://localhost:5555/bags/user/${id}`;
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+
+// login / signup / logout
 function profile() {
     let profile = document.getElementById('profile');
 

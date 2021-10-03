@@ -2,7 +2,7 @@
 <html lang="en">
     <%- include("../components/head", {
         title: `Shopping Bag`
-    }) %
+    }) %>
 <body>
     <header>
         <%- include("../components/header") %>
@@ -10,13 +10,13 @@
     <main>
         <p>MY BAG <span id="total__products"><%= user.totalItemsInBag %></span> </p>
         <div id="bag__items">
-            <% bag.forEach((product) => { %>
+            <% bag.forEach((product, i) => { %>
                 <div class="bag__product--box">
-                    <img src="<%= product.imagesSmall[0] %>" alt="">
+                    <img src="<%= products[i].imagesSmall[0] %>" alt="">
                     <p><%= product.name %></p>
                     <p><%= product.price %></p>
                     <input type="number" value="<%= product.quantity %>" placeholder="<%= product.quantity %>">
-                    <p><%= product.total %></p>
+                    <p><%= (product.quantity * product.price) %></p>
                     <button><span class="material-icons-outlined">clear</span></button>
                 </div>
             <%})%>
@@ -28,9 +28,16 @@
         <button id="checkout__btn"><a id="checkout__link">PROCEED TO CHECKOUT</a></button>
     </main>
     <footer>
-        <%- include("../components/footer") %>    
+  
     </footer>
 </body>
 </html>
+<script>
+    let checkout = document.getElementById("checkout__btn");
+    checkout.onclick = async () => {
+        let id = JSON.parse(localStorage.getItem('id'));
+        window.location.href = `http://localhost:5555/bags/checkout/${id}`;
+    }
+</script>
 
 

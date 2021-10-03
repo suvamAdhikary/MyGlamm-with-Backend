@@ -61,9 +61,10 @@ nav {
     background-color: #000000;
     color: #FFFFFF;
 }
-
+#bag__link{
+    display: flex;
+    flex-direction: row;
+}
 #bag__count{
-    position: fixed;
-    z-index: 2;
-    top: 1;
+    color: maroon;
 }
