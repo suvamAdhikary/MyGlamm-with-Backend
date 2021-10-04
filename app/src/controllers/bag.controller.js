@@ -64,4 +64,15 @@ router.get('/checkout/:userId', async(req, res)=> {
     // res.render('pages/checkout.ejs')
 })
 
+// for add to cart
+router.get('/product/user/:userId/:productId', async (req, res)=> {
+    console.log("in add to bag");
+    try {
+        let bag = await Bag.findOne({$and: [{userId: req.params.userId}, {productId: req.params.productId}]}).lean().exec();
+        res.status(200).send(bag);
+    }catch(err){
+        res.send(err);
+    }
+})
+
 module.exports = router;
