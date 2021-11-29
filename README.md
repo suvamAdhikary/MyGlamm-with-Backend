@@ -28,6 +28,7 @@
 - `ECMAScript 6`
 - `Vanilla JavaScript`
 
+
 ---
 
 ### Collections in database
@@ -48,3 +49,4 @@
 
 ---
 ---
+![myGlamm](https://user-images.githubusercontent.com/86410106/143930130-7ecfebdb-2dbc-4cdf-84e6-239dcfcc1273.png)
