@@ -13,7 +13,8 @@ mobile.onclick = async function () {
 
         // mobile = await mobile.json();
         // console.log("json", mobile);
-        let newph = await fetch(`http://localhost:5555/mobiles/`, {
+        console.log(window.location, "test test");
+        let newph = await fetch(`http://localhost:5000/mobiles/`, {
             method: "POST",
             body: JSON.stringify({
                 countryCode: code,
@@ -47,8 +48,8 @@ mobile.onclick = async function () {
         // });
 
     } catch (err) {
-
-        window.location.href = `http://localhost:5555/login`
+        console.log(window.location, "test");
+        window.location.href = `http://localhost:5000/login`
         // await fetch(`http://localhost:5555/signup`, {
 
         //     method: "POST",

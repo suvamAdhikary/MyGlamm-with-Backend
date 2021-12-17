@@ -55,7 +55,7 @@ const loginRoute = require('./routes/login.route');
 const signupRoute = require('./routes/signup.route');
 // const checkoutRoute = require('./routes/checkout.route');
 
-app.use('/myglamm', indexRoute);
+app.use('/', indexRoute);
 app.use('/login', loginRoute);
 app.use('/signup', signupRoute);
 // app.use('/bags/checkout', checkoutRoute);

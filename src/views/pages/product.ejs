@@ -35,7 +35,7 @@
 <!-- <script src="scripts/mobile.js"></script> -->
 <script>
 let updateUser = async (totalItemsInBag, totalPrice, id)=> {
-   let user = await fetch(`http://localhost:5555/users/${id}`, {
+   let user = await fetch(`http://localhost:5000/users/${id}`, {
             method: 'PATCH',
             body: JSON.stringify ({
                 totalItemsInBag,
@@ -52,15 +52,15 @@ addBtn.onclick = async  ()=> {
 
     const userId = JSON.parse(localStorage.getItem('flag'));
 
-    let user = await fetch(`http://localhost:5555/users/mobile/${userId}`);
+    let user = await fetch(`http://localhost:5000/users/mobile/${userId}`);
     user = await user.json();
 
     try {
-       var bagItem = await fetch(`http://localhost:5555/bags/product/user/${user._id}/${addBtn.value}`)
+       var bagItem = await fetch(`http://localhost:5000/bags/product/user/${user._id}/${addBtn.value}`)
        bagItem = await bagItem.json();
         console.log(bagItem);
        if(bagItem !== null) {
-        await fetch(`http://localhost:5555/bags/${bagItem._id}`, {
+        await fetch(`http://localhost:5000/bags/${bagItem._id}`, {
             method: 'PATCH',
             body: JSON.stringify({
                 quantity: `${+bagItem.quantity + 1}`
@@ -72,10 +72,10 @@ addBtn.onclick = async  ()=> {
     //    window.location.reload()
        } else {
 
-        let product = await fetch(`http://localhost:5555/products/${addBtn.value}`);
+        let product = await fetch(`http://localhost:5000/products/${addBtn.value}`);
         product = await product.json();
 
-        let bagitem = await fetch(`http://localhost:5555/bags`, {
+        let bagitem = await fetch(`http://localhost:5000/bags`, {
             method: 'POST',
             body: JSON.stringify ({
                 userId: user._id,
@@ -92,10 +92,10 @@ addBtn.onclick = async  ()=> {
         // window.location.reload()
        }
     } catch (err) {
-        let product = await fetch(`http://localhost:5555/products/${addBtn.value}`);
+        let product = await fetch(`http://localhost:5000/products/${addBtn.value}`);
         product = await product.json();
 
-        let bagitem = await fetch(`http://localhost:5555/bags`, {
+        let bagitem = await fetch(`http://localhost:5000/bags`, {
             method: 'POST',
             body: JSON.stringify ({
                 userId: user._id,

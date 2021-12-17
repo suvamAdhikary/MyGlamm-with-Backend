@@ -1,100 +1,162 @@
+// const header = document.querySelector('header');
 
-<!-- add div start here -->
-<div id="container">
-<div id="add__div">
-    <a href="comingsoon" id="shop__now">SHOP NOW</a>
-    <a href="myglammStoreLocator" id="myglamm__store">MyGlamm Store</a>
-</div>
+// let addDiv = document.createElement('div');
+// addDiv.setAttribute('id', 'add__div');
 
-<!-- add div end here -->
+// let middleDiv = document.createElement('div');
+// middleDiv.setAttribute('id', 'middle__div');
 
+// let mainNavbar = document.createElement('nav');
 
-<!-- middle div start here -->
-
-<div id="middle__div">
-    <a href="/myglamm" id="main__logo">
-        <img src="/images/icons/logo-1.jpg" alt="myglamm logo">
-    </a>
-    <input type="search" id="search__bar" placeholder="Find Lipstick, Eyeliner, Makeup Tutorial, etc">
-    <a href="referandearn" id="refer__earn">Refer & Earn</a>
-    <a id="bag__link">
-        <span class="material-icons-outlined">shopping_cart</span>
-        <span id=bag__count></span>
-    </a>
-    <a href="/" id="profile">
-        <span class="material-icons-outlined">
-            person_outline
-        </span>
-    </a>
-</div>
-
-<!-- middle div end here -->
+// below is the function for the navigation bar
 
 
-<!-- navbar start here -->
+// function showNavbar() {
 
-<nav>
-    <a href="categories/6152cc82128a9e95014ef21d" id="makeup__link">MAKEUP</a>
-    <a href="categories/6152cca5128a9e95014ef21f" id="hair__care">HAIR CARE</a>
-    <a href="categories/6152ccbe128a9e95014ef221" id="skin__care">SKINCARE</a>
-    <a href="categories/6152cce2128a9e95014ef223" id="sanitizing__care">SANITIZING CARE</a>
-    <a href="termsAndConditions" id="terms__conditions">TERMS & CONDITION</a>
-    <a href="referandearn" id="rewards">REWARDS</a>
-    <a href="about" id="about">ABOUT</a>
-</nav>
+// let makeup = document.createElement('a');
+// makeup.setAttribute('id', 'makeup__link')
+// makeup.innerText = "MAKEUP";
+// makeup.href = 'makeup.html';
 
-</div>
+// let hairCare = document.createElement('a');
+// hairCare.setAttribute('id', 'hair__care');
+// hairCare.innerText = "HAIR CARE";
+// hairCare.href = 'hairCare.html';
 
-<!-- nav bar end here -->
+// let skinCare = document.createElement('a');
+// skinCare.setAttribute('id', 'skin__care');
+// skinCare.innerText = "SKINCARE";
+// skinCare.href = 'skinCare.html';
 
-<!-- <script src="scripts/header.js"></script> -->
-<script>
+// let sanitizingCare = document.createElement('a');
+// sanitizingCare.setAttribute('id', 'sanitizing__care');
+// sanitizingCare.innerText = "SANITIZING CARE";
+// sanitizingCare.href = 'sanitizingCare.html';
 
-// bag
+// let collection = document.createElement('a');
+// collection.setAttribute('id', 'collection');
+// collection.innerText = "TERMS & CONDITION";
+// collection.href = 'termsAndConditions.html';
 
-let bagIcon = document.getElementById("bag__link")
+// let rewards = document.createElement('a');
+// rewards.setAttribute('id', 'rewards');
+// rewards.innerText = "REWARDS";
+// rewards.href = 'referandearn.html';
 
-// window.onload = async ()=> {
-//     let id = JSON.parse(localStorage.getItem('flag'));
-//     console.log(id);
-//     try{
-//         console.log("innn");
-//         let user = await fetch(`http://localhost:5555/users/mobile/${id}`);
-//         user = await user.json()
-//     } catch (err) {
-//         console.log(err);
-//     }
+// let aboutNav = document.createElement('a');
+// aboutNav.setAttribute('id', 'about');
+// aboutNav.innerText = "ABOUT";
+// aboutNav.href = 'about.html';
+
+
+// mainNavbar.append(makeup, hairCare, skinCare, sanitizingCare, collection, rewards, aboutNav);
+
+// header.append(mainNavbar);
+
 // }
 
-// show bag count
+// showNavbar()
 
-const showBagCount = async ()=> {
-    let id = JSON.parse(localStorage.getItem('flag'));
-    try{
+// below is the function for middle div of header
 
-        let user = await fetch(`http://localhost:5555/users/mobile/${id}`);
-        user = await user.json();
-        document.getElementById("bag__count").textContent= user.totalItemsInBag;
-        localStorage.setItem("id", JSON.stringify(user._id))
-    } catch (err) {
-        console.log(err);
-    }
-}
-showBagCount();
+// function showMiddleDiv() {
 
-// render to bag page
+//     let mainLogo = document.createElement('a');
+//     mainLogo.setAttribute('id', 'main__logo');
+//     mainLogo.href = 'index.html';
+//     mainLogo.innerHTML = `<img src="https://files.myglamm.com/site-images/original/MyGlamm-Logo_1.jpg" alt="myglamm logo">`;
 
-bagIcon.onclick =async () => {
-    let id = JSON.parse(localStorage.getItem('id'));
-    try{
-        window.location.href = `http://localhost:5555/bags/user/${id}`;
-    } catch (err) {
-        console.log(err);
-    }
-}
+//     let searchBar = document.createElement('input');
+//     searchBar.setAttribute('id', 'search__bar')
+//     searchBar.type = 'search';
+//     searchBar.placeholder = 'Find Lipstick, Eyeliner, Makeup Tutorial, etc';
+//     searchBar.setAttribute('autocomplete', 'on');
+//     searchBar.oninput = searchFunction;
+
+//     let refer = document.createElement('a');
+//     refer.setAttribute('id', 'refer__earn');
+//     refer.innerText = 'Refer & Earn';
+//     refer.href = `referandearn.html`;
+
+//     let bagLink = document.createElement('a');
+//     bagLink.setAttribute('id', 'bag__link');
+//     bagLink.href = 'cart.html';
+//     bagLink.innerHTML = `<span class="material-icons-outlined">shopping_cart<span id=bag__count></span></span>`;
 
 
-// login / signup / logout
+//     // profile button start
+
+//     let profile = document.createElement('a');
+//     profile.setAttribute('id', 'profile');
+
+//     Flag = JSON.parse(localStorage.getItem('flag'));
+
+//     if (Flag == null) {
+//         profile.innerText = 'Signup / Login';
+//         profile.href = `user_tel.html`;
+//     } else {
+//         profile.innerText = 'Logout';
+//         profile.href = `index.html`;
+//     }
+
+//     profile.onclick = function () {
+//         if(profile.innerText == 'Logout'){
+//             Flag = null;
+//             localStorage.setItem('flag', JSON.stringify(Flag));
+//             location.reload();
+//         }
+//     }
+
+
+//     // profile.onclick = profileFunction;
+//     // profile.innerHTML = `Profile`;
+
+//     // profile btn end
+
+//     middleDiv.append(mainLogo, searchBar, refer, bagLink, profile);
+//     header.append(middleDiv);
+//     header.insertBefore(middleDiv, mainNavbar);
+// }
+// showMiddleDiv();
+
+
+// below is the function for advertising div
+
+// function showAddDiv() {
+
+//     let topLeft = document.createElement("a");
+//     topLeft.setAttribute("id", "shop__now");
+//     topLeft.href = 'comingsoon.html';
+//     topLeft.innerHTML = `SHOP NOW`;
+
+//     let topRight = document.createElement("a");
+//     topRight.setAttribute("id", "myglamm__store");
+//     topRight.href = 'myglammStoreLocator.html';
+//     topRight.innerHTML = `MyGlamm Store`;
+
+//     addDiv.append(topLeft, topRight);
+//     header.append(addDiv);
+//     header.insertBefore(addDiv, middleDiv);
+// }
+// showAddDiv();
+
+
+// below is the function for search input
+
+// function searchFunction() {
+
+//     let products = JSON.parse(localStorage.getItem("glamm_products"))
+//     let searchEntry = document.getElementById("search__bar").value;
+
+//     products.forEach(function(ele, n) {
+
+//         if(ele.name == searchEntry) {
+//             window.location.href = `products/${n}.html`;
+//         }
+//     })
+// }
+
+// below is the function for profile button
 function profile() {
     let profile = document.getElementById('profile');
 
@@ -107,7 +169,7 @@ function profile() {
         profile.href = `mobiles`;
     } else {
         profile.innerHTML = `Logout`;
-        profile.href = `myglamm`;
+        profile.href = ``;
     }
 
         profile.onclick = function () {
@@ -120,6 +182,73 @@ function profile() {
 
 }
 profile();
+
+
+
+// function profileFunction() {
+
+//     let profile = document.getElementById('profile').innerText;
+
+//     Flag = JSON.parse(localStorage.getItem('flag'));
+
+//     if(profile == 'Logout') {
+
+//         profile.textContent = 'Signup / Login';
+//         profile.href = `user_tel.html`;
+
+//         localStorage.setItem('flag', JSON.stringify('null'));
+
+//     }
+// }
+// profileFunction();
+
+
+// Below is the show bag count function for
+
+// function showBagCount() {
+    
+//     let div = document.getElementById("bag__count");
+//     let Flag = JSON.parse(localStorage.getItem('flag'));
+//     var currentCart;
+
+//     if (Flag != null) {
+
+//         currentCart = JSON.parse(localStorage.getItem('glammUsers'))
+
+//         var count;
+
+//         currentCart.forEach(({mobile, cart}) => {
+
+//             if(Flag == mobile) {
+//                 let temp = 0;
+//                 cart.forEach(({quantity}) => {
+//                     temp+=quantity;
+//                 })
+//                 if(temp > 0) {
+//                     count = temp;
+//                 }
+//             }
+
+//         })
+
+//     } else {
+//         currentCart = JSON.parse(localStorage.getItem('glammBag'))
+
+//         let temp = 0;
+//         currentCart.forEach(({quantity}) => {
+//             temp+=quantity;
+//         })
+//         if(temp > 0) {
+//             count = temp;
+//         }
+//     }
+
+//     if (count > 0) {
+//         div.innerHTML = count;
+//     }
+// }
+// showBagCount();
+
 
 
 
@@ -407,6 +536,4 @@ let divD = document.createElement("div");
            divD.classList.remove("active");
            divD.innerHTML = "";
             
-    })
-
-</script>
+    });
