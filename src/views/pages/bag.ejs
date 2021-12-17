@@ -34,10 +34,13 @@
 </body>
 </html>
 <script>
+
+    const baseUrl = `https://myglamm-clone.herokuapp.com/` || `http://localhost:5000/`;
+
     let checkout = document.getElementById("checkout__btn");
     checkout.onclick = async () => {
         let id = JSON.parse(localStorage.getItem('id'));
-        window.location.href = `http://localhost:5000/bags/checkout/${id}`;
+        window.location.href = `${baseUrl}bags/checkout/${id}`;
     }
 </script>
 

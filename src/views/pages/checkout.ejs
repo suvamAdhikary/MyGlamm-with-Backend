@@ -109,12 +109,14 @@
 </body>
 </html>
 <script>
-    let paymentBtn = document.getElementById("payment__link")
+    let paymentBtn = document.getElementById("payment__link");
+
+    const baseUrl = `https://myglamm-clone.herokuapp.com/` || `http://localhost:5000/`;
 
     paymentBtn.onclick = async ()=> {
 
         let id = JSON.parse(localStorage.getItem('id'));
-        window.location.href = `http://localhost:5000/payments/user/${id}`;
+        window.location.href = `${baseUrl}payments/user/${id}`;
     }
 </script>
 

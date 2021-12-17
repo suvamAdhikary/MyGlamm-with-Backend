@@ -51,6 +51,7 @@
 <script>
 
 // bag
+const baseUrl = `https://myglamm-clone.herokuapp.com/` || `http://localhost:5000/`;
 
 let bagIcon = document.getElementById("bag__link")
 
@@ -72,7 +73,7 @@ const showBagCount = async ()=> {
     let id = JSON.parse(localStorage.getItem('flag'));
     try{
 
-        let user = await fetch(`http://localhost:5000/users/mobile/${id}`);
+        let user = await fetch(`${baseUrl}users/mobile/${id}`);
         user = await user.json();
         document.getElementById("bag__count").textContent= user.totalItemsInBag;
         localStorage.setItem("id", JSON.stringify(user._id))
@@ -87,7 +88,7 @@ showBagCount();
 bagIcon.onclick =async () => {
     let id = JSON.parse(localStorage.getItem('id'));
     try{
-        window.location.href = `http://localhost:5000/bags/user/${id}`;
+        window.location.href = `${baseUrl}bags/user/${id}`;
     } catch (err) {
         console.log(err);
     }

@@ -1,6 +1,4 @@
-// let express = require('express');
-// let router = express.Router();
-
+const myUrl = `https://myglamm-clone.herokuapp.com/` || `http://localhost:5000/`;
 let mobile = document.getElementById('ph__btn');
 mobile.onclick = async function () {
 
@@ -13,8 +11,8 @@ mobile.onclick = async function () {
 
         // mobile = await mobile.json();
         // console.log("json", mobile);
-        console.log(window.location, "test test");
-        let newph = await fetch(`http://localhost:5000/mobiles/`, {
+
+        let newph = await fetch(`${myUrl}mobiles/`, {
             method: "POST",
             body: JSON.stringify({
                 countryCode: code,
@@ -48,8 +46,8 @@ mobile.onclick = async function () {
         // });
 
     } catch (err) {
-        console.log(window.location, "test");
-        window.location.href = `http://localhost:5000/login`
+
+        window.location.href = `${myUrl}login`
         // await fetch(`http://localhost:5555/signup`, {
 
         //     method: "POST",

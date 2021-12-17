@@ -23,9 +23,11 @@
 </html>
 <script>
     const id = document.getElementById("mobile_id").value;
+
+    const baseUrl = `https://myglamm-clone.herokuapp.com/` || `http://localhost:5000/`;
     
     const btn = document.getElementById("login__verify").onclick = ()=> {
         localStorage.setItem("flag", JSON.stringify(id));
-        window.location.href = `http://localhost:5000/`;
+        window.location.href = baseUrl;
     }
 </script>
