@@ -67,7 +67,7 @@
 <script>
     let payBtn = document.getElementById("proceed__btn");
 
-    const baseUrl = `https://myglamm-clone.herokuapp.com/` || `http://localhost:5000/`;
+    const paymentUrl = `https://myglamm-clone.herokuapp.com/` || `http://localhost:5000/`;
 
     payBtn.onclick = async ()=> {
         let id = JSON.parse(localStorage.getItem('id'));
@@ -79,7 +79,7 @@
         // })
         localStorage.setItem("flag", JSON.stringify(null))
         alert("Thank You")
-        window.location.href = baseUrl;
+        window.location.href = paymentUrl;
     }
 </script>
 
