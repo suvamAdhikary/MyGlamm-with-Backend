@@ -62,12 +62,12 @@ app.use('/signup', signupRoute);
 
 
 
-const PORT = 5555;
-app.listen(PORT, async () => {
+
+app.listen(process.env.PORT || 5000, async () => {
 	try {
 		await connect();
 
-		console.log(`Listening to port: ${PORT}`);
+		console.log(`Listening to port: ${process.env.PORT || 5000}`);
 
 	} catch (err) {
 

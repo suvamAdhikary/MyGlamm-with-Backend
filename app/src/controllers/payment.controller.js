@@ -15,11 +15,11 @@ router.patch('/:id', crudController.updateOne(Payment));
 router.delete('/:id', crudController.deleteOne(Payment));
 
 router.get('/user/:userId', async(req, res)=> {
-    console.log("payment");
+
     try{
         let user = await User.findById(req.params.userId).lean().exec();
 
-        console.log("inPayment :", "user :", user);
+
 
         res.render('pages/payment.ejs', {
             user

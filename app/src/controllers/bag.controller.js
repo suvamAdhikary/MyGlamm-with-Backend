@@ -17,7 +17,7 @@ router.delete('/:id', crudController.deleteOne(Bag));
 
 // for cart
 router.get('/user/:userId', async (req, res)=> {
-    console.log("in bag......");
+
     try {
         let productsId = [];
         let bag = await Bag.find({$and: [{userId: req.params.userId}]}).lean().exec();
@@ -26,7 +26,7 @@ router.get('/user/:userId', async (req, res)=> {
             productsId.push(id);
         })
         let products = await Product.find({$in: {_id: productsId}}).lean().exec();
-        console.log("bag :", bag, "user :", user, productsId, products);
+       
         // res.send({products});
         res.render('pages/bag.ejs', {
             bag,
@@ -50,8 +50,8 @@ router.get('/checkout/:userId', async(req, res)=> {
             productsId.push(id);
         })
         let products = await Product.find({_id: {$in: productsId}}).lean().exec();
-        console.log("inCheckoutBag :", bag, "user :", user, productsId, products, address);
-        console.log(bag.length, products.length);
+    
+   
         res.render('pages/checkout.ejs', {
             bag,
             products,
@@ -66,7 +66,7 @@ router.get('/checkout/:userId', async(req, res)=> {
 
 // for add to cart
 router.get('/product/user/:userId/:productId', async (req, res)=> {
-    console.log("in add to bag");
+
     try {
         let bag = await Bag.findOne({$and: [{userId: req.params.userId}, {productId: req.params.productId}]}).lean().exec();
         res.status(200).send(bag);

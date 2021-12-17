@@ -56,11 +56,11 @@ router.get('', async (req, res) => {
 // })
 
 router.post('', async (req, res) => {
-    console.log(req.body);
+
     try{
         const mobile = await Mobile.create(req.body);
         // const mobile = await Mobile.findOne({$and: [{countryCode: req.query.countryCode}, {mobile: req.query.ph}]}).lean().exec();
-        console.log("post success", mobile);
+
             res.render('pages/signup.ejs', {
                 mobile,
                 id: `${mobile.countryCode}${mobile.mobile}`
