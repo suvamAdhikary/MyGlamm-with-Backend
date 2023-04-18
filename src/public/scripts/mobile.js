@@ -1,4 +1,4 @@
-const myUrl = `https://myglamm-clone.herokuapp.com/` || `http://localhost:5000/`;
+const myUrl = `https://myglamclone.onrender.com` || `http://localhost:5000/`;
 let mobile = document.getElementById('ph__btn');
 mobile.onclick = async function () {
 
